@@ -1,0 +1,11 @@
+Pagina principal Reus construccions (no utilitzar demoment) 
+"/" 
+
+       
+"/users/logIn"     -> Render LogIn.html
+
+"/users/logOut"
+
+"/users/signUp"
+
+"/users/editProfile"
