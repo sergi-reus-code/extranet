@@ -4,7 +4,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/',function (req,res,next) {
-    res.send("Bienvenido a Reus Contruccions ");
+    res.render('users/index');
 
 
 
