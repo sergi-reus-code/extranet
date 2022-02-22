@@ -4,8 +4,8 @@
  * Module dependencies.
  */
 
-var app = require('../temp/Practiques/app');
-var debug = require('debug')('practiques:server');
+var app = require('../app');
+var debug = require('debug')('extranet:server');
 var http = require('http');
 
 /**
