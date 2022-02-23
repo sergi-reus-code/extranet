@@ -1,24 +1,45 @@
+/**
+ * MODULOS
+ */
+
+//https://www.npmjs.com/package/http-errors
 var createError = require('http-errors');
+
+//https://www.npmjs.com/package/express
 var express = require('express');
+
+//https://nodejs.org/api/path.html
 var path = require('path');
+
+//https://www.npmjs.com/package/cookie-parser
 var cookieParser = require('cookie-parser');
+
+//https://www.npmjs.com/package/morgan
 var logger = require('morgan');
 
+//Modulos de las rutas
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+
+
+// Servidor Express
 var app = express();
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+//express server config
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//express endpoints
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
