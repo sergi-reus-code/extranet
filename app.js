@@ -17,6 +17,7 @@ var cookieParser = require('cookie-parser');
 //https://www.npmjs.com/package/morgan
 var logger = require('morgan');
 
+
 //Modulos de las rutas
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -38,6 +39,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 //express endpoints
 app.use('/', indexRouter);

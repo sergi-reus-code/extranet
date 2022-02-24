@@ -5,8 +5,8 @@ var router = express.Router();
 /* GET home page. */
 router.get('/',function (req,res,next) {
 
-    var titulo = "TITULO DE index"
-    res.render('./index', { title: "titulo" });
+    var titulo = "TITULO DE index por que me da la gana"
+    res.render('./index', { title: titulo });
 
 });
 
