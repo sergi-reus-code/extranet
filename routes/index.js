@@ -8,8 +8,9 @@ router.get('/',function (req,res,next) {
     var titulo = "TITULO DE index"
     res.render('./index', { title: "titulo" });
 
-
-
 });
+
+
+
 
 module.exports = router;
