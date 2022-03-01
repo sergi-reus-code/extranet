@@ -18,6 +18,23 @@ index:function (req, res) {
      
   },
 
+  login:function (req, res) { 
+
+    user.obtener(conexion,function (err,datos) {
+      
+      console.log(datos);
+      
+      res.render('users/index', { title: 'Aplicación', users:datos });
+
+    });
+
+   
+     
+  },
+
+
+
+
   crear: function (req,res) {
         res.render('users/signup');
 
