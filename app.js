@@ -21,7 +21,7 @@ var logger = require('morgan');
 //Modulos de las rutas
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var tareasRouter = require('./routes/tareas');
 
 
 // Servidor Express
@@ -44,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //express endpoints
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/tareas', tareasRouter);
 
 
 // catch 404 and forward to error handler
