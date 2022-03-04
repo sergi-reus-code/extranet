@@ -9,7 +9,7 @@ router.get('/',function (req,res,next) {
     
 
     var titulo = "TITULO DE index por que me da la gana"
-    res.render('./users/signin', { title: titulo });
+    res.render('./views/index', { title: titulo });
 
 });
 
