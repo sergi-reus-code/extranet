@@ -3,4 +3,3 @@ module.exports={
           conexion.query("SELECT * FROM usuarios", funcion);
     }
   }
-}
