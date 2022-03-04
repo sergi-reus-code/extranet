@@ -10,9 +10,12 @@ const Usercontroller= require("../controllers/Usercontroller");
 
 router.get('/',(req,res,next) => {
 
+        var headers = req.headers
+
         //console.log(req.headers);
 
-        res.send('HELLO')
+        //res.send('HELLO API')
+        res.send(headers)
 
 
 
