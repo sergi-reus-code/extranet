@@ -8,8 +8,7 @@ const Usercontroller= require("../controllers/Usercontroller");
 //router.get('/login',Usercontroller.login);
 
 
-router.get('/checkuserdata',(req,res,next) => {
-
+router.get('/login',(req,res,next) => {
 
         //comprovar email
         //comprovar password
@@ -21,12 +20,21 @@ router.get('/checkuserdata',(req,res,next) => {
 
         //res.send('HELLO API')
         res.send(headers)
-
-
-
 })
 
+router.post('/login',(req,res,next) => {
 
+        //comprovar email
+        //comprovar password
+        //a la base de dades
+
+        var headers = req.headers
+
+        console.log(req.headers);
+
+        //res.send('HELLO API')
+        res.send(headers)
+})
 
 
 
