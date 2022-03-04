@@ -11,7 +11,8 @@ const Usercontroller= require("../controllers/Usercontroller");
 router.get('/',(req,res) => {
 
     
-
+    var titulo = "TITULO DE index por que me da la gana"
+    res.render('./users/signin', { title: titulo });
 
 
 
