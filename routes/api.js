@@ -8,7 +8,12 @@ const Usercontroller= require("../controllers/Usercontroller");
 //router.get('/login',Usercontroller.login);
 
 
-router.get('/',(req,res,next) => {
+router.get('/checkuserdata',(req,res,next) => {
+
+
+        //comprovar email
+        //comprovar password
+        //a la base de dades
 
         var headers = req.headers
 
