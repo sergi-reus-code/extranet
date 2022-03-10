@@ -30,7 +30,7 @@ router.post('/upload_file',(req,res,next) => {
 
         var headers = req.headers
 
-        console.log(req.headers);
+        console.log(req.headers.rodrigo);
 
         //res.send('HELLO API')
         res.send("OK")
