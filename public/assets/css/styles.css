@@ -1,0 +1,50 @@
+body {
+  font-family: "Open Sans",-apple-system,BlinkMacSystemFont,raleway,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+body {
+}
+
+#web {
+  text-align: center;
+  padding: 40px;
+  background: url("../../assets/img/house-ge21c06127_1280.jpg") no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 991px) {
+  #web {
+    padding: 20px;
+  }
+}
+
+#web .jumbotron {
+  border-radius: 30px;
+  padding: 40px;
+  background-color: rgba(255,255,255,0.75);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.site-section {
+  text-align: center;
+  padding: 60px 0;
+}
+
+@media (max-width: 360px) {
+  #web .jumbotron {
+    padding: 20px;
+  }
+}
+
+#Bienvenido p {
+  max-width: 800px;
+  font-size: 28px;
+  margin: 0 auto;
+}
+
+.site-section h3 {
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+
