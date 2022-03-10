@@ -1,5 +1,5 @@
 var conexion = require('../config/conexion');
-var user= require("../model/user");
+//var user= require("../model/user");
 
 
 module.exports={
