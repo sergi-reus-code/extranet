@@ -6,8 +6,6 @@ var router = express.Router();
 
 router.get('/',function (req,res,next) {
 
-    
-
     var titulo = "TITULO DE index por que me da la gana"
     res.render('./index', { title: titulo });
 
