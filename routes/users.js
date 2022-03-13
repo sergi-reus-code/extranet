@@ -2,7 +2,7 @@ var express = require('express');
 const req = require('express/lib/request');
 var router = express.Router();
 
-const Usercontroller= require("../controllers/Usercontroller");
+const Usercontroller= require("../DBcontrollers/Usercontroller");
 
 /* GET home page. */
 //router.get('/',Usercontroller.index);
