@@ -42,15 +42,19 @@ conDO.connect(
      console.log('Conexión establecida to Digital Ocean')
 
 
+    
      
+
+     conDO.query("SELECT * FROM `usuarios` where `aa1`=1", function (err, result, fields) {
+      if (err) throw err;
+      console.log(result[0].aa1);
+    });
+
+
+
+
+
      
-      conDO.query("CREATE TABLE `usuarios` (`id_usuario` int(11) NOT NULL,`nombre` varchar(100) NOT NULL,`apellidos` varchar(100) NOT NULL,`fecha_creacion` date NOT NULL,`username` varchar(100) NOT NULL,`password` varchar(100) NOT NULL,`telf` varchar(100) NOT NULL,`email` varchar(100) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", (data)=>{
-
-         console.log(data);
-
-      })
-
-
 
   }else{
      console.log('Error de conexión to Digital Ocean')
