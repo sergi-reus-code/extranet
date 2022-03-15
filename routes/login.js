@@ -27,7 +27,8 @@ router.post('/',(req,res,next) => {
 
         const result = loginUtils.checkUser(username, password)
 
-    
+        console.log(result);
+
         switch (result) {
             case "ok":
 
@@ -49,7 +50,7 @@ router.post('/',(req,res,next) => {
 
             default:
 
-                res.send("USUARIO NO ENCONTRADO -> Username: " + username + " no existe en la base de datos")
+                res.send("TODO MAL -> Username: " + username + " no existe en la base de datos")
 
             break;
         }
