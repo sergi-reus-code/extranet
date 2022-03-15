@@ -1,5 +1,5 @@
 var conexion = require('../config/conexion');
-var user= require("../querys/user");
+var user= require("../model/user");
 
 
 module.exports={
@@ -46,6 +46,3 @@ index:function (req, res) {
 
 
 
-
-
-//console.log(conexion);

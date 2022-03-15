@@ -1,10 +1,6 @@
-
-
 var express = require('express');
-//const req = require('express/lib/request');
 var router = express.Router();
-
-const Usercontroller= require("../DBcontrollers/Logincontroller");
+const Logincontroller= require("../DBcontrollers/Logincontroller");
 
 
 
@@ -25,7 +21,7 @@ router.get('/',(req,res) => {
 
 
 
-router.get('/login',Usercontroller.login);
+router.get('/login',Logincontroller.login);
 
 
 

@@ -2,7 +2,7 @@ var express = require('express');
 const { result } = require('lodash');
 var router = express.Router();
 
-//const Usercontroller= require("../controllers/Usercontroller");
+const Logincontroller= require("../DBcontrollers/Logincontroller");
 
 /* GET home page. */
 //router.get('/',Usercontroller.index);
@@ -36,8 +36,13 @@ router.post('/',(req,res,next) => {
         res.send("OK POST" + username + "/" + password)
 
 
+        const resultado = resultado_Loguin (user,passrw)
+
+
+
+
         //conectar base datos i coger ususrio
-var consulta= SELECT * FROM `usuarios` WHERE usuario=`username`AND contraseña=`password`;
+//var consulta= SELECT * FROM `usuarios` WHERE usuario=`username`AND contraseña=`password`;
 
 var result=mysql_query (conexion,consulta)
 
