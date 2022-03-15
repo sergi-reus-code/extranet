@@ -1,4 +1,7 @@
 var mysql= require("mysql")
+
+
+/*
 var con= mysql.createConnection({
          host:'127.0.0.1',
          user: 'root',
@@ -6,7 +9,7 @@ var con= mysql.createConnection({
          database:'EXTRANET_DB'
 }
 );
-
+*/
 /*
 con.connect( 
      (err)=>{
@@ -43,15 +46,19 @@ conDO.connect(
 
 
     
-     
+  /*   
 
-     conDO.query("SELECT * FROM `usuarios` ", function (err, result, fields) {
+   conDO.query("SELECT * FROM `usuarios` ", function (err, result, fields) {
       if (err) throw err;
       console.log(result[0].aa4);
     }
+
+
+
+
     );
 
-
+*/
 
 
 
@@ -69,6 +76,6 @@ conDO.connect(
 
 
 
-module.exports  = con;
+//module.exports  = con;
 module.exports = conDO;
 

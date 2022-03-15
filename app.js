@@ -43,7 +43,7 @@ const _ = require('lodash');
 
 //Modulos de las rutas
 var indexRouter = require('./routes/main');
-var usersRouter = require('./routes/login');
+var loginRouter = require('./routes/login');
 var tareasRouter = require('./routes/tareas');
 var apiRouter = require('./routes/api');
 
@@ -90,7 +90,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //express endpoints
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/login', loginRouter);
 app.use('/tareas', tareasRouter);
 
 //api endpoints
