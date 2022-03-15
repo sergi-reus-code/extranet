@@ -4,6 +4,9 @@ var router = express.Router();
 
 const Usercontroller= require("../DBcontrollers/Usercontroller");
 
+
+
+
 /* GET home page. */
 //router.get('/',Usercontroller.index);
 
@@ -21,6 +24,7 @@ router.get('/',(req,res) => {
 
 
 router.get('/login',Usercontroller.login);
+
 
 
 router.get('/testDO',(req,res) => {

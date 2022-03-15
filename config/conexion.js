@@ -45,10 +45,11 @@ conDO.connect(
     
      
 
-     conDO.query("SELECT * FROM `usuarios` where `aa1`=1", function (err, result, fields) {
+     conDO.query("SELECT * FROM `usuarios` ", function (err, result, fields) {
       if (err) throw err;
-      console.log(result[0].aa1);
-    });
+      console.log(result[0].aa4);
+    }
+    );
 
 
 

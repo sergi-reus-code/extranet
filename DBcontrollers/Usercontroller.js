@@ -22,11 +22,12 @@ index:function (req, res) {
 
     user.obtener(conexion,function (err,datos) {
       
-      console.log(datos);
+      //console.log(datos);
       
       res.render('users/index', { title: 'Aplicación', users:datos });
 
-    });
+    }
+    );
 
    
      
@@ -42,4 +43,6 @@ index:function (req, res) {
   }
 
 }
+
+
 
