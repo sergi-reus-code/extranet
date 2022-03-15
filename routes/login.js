@@ -3,6 +3,8 @@ var router = express.Router();
 
 const loginUtils= require("../DB_Controllers/loginController");
 
+
+/* LOGIN PAGE */
 router.get('/',(req,res) => {
 
     console.log("esoy en login");
@@ -12,6 +14,7 @@ router.get('/',(req,res) => {
 
 
 });
+
 
 
 router.post('/',(req,res,next) => {
@@ -25,53 +28,33 @@ router.post('/',(req,res,next) => {
         const result = loginUtils.checkUser(username, password)
 
     
+        switch (result) {
+            case "ok":
 
+                res.send("TODO OK -> Username: " + username + " % password: " + password + " existe en la base de datos")
+            
+            break;
+        
+            case "badUsername":
+                
+                res.send("USUARIO NO ENCONTRADO -> Username: " + username + " no existe en la base de datos")
 
-        console.log(`usuario : ${username} / contraseña : ${password}`);
-        //console.log(req.body.user.name);
-      
-        res.send("OK POST" + username + "/" + password)
+            break;
 
+            case "badPassword":
 
-        //const resultado = resultado_Loguin (user,passrw)
+                res.send("PASSWORD INCORRECTO PARA EL USUARIO -> Username: " + username)
+            
+            break;
 
+            default:
 
+                res.send("USUARIO NO ENCONTRADO -> Username: " + username + " no existe en la base de datos")
 
-
-        //conectar base datos i coger ususrio
-//var consulta= SELECT * FROM `usuarios` WHERE usuario=`username`AND contraseña=`password`;
-
-//var result=mysql_query (conexion,consulta)
-
-//var filas= mysql_num_rows (result)
-
- 
- 
-        //si no existe _> error de no usuari -> ir pagina singup
-
-        //si existe comprovar password = password
-
-        //si es igual ir a indexapp
-
-
-
-
+            break;
+        }
 
 })
 
-
-
-
-router.get('/testDO',(req,res) => {
-
-    
-
-    
-    var titulo = "TITULO DE index por que me da la gana"
-    res.render('.login/signin', { title: titulo });
-
-
-
-});
 
 module.exports = router;
