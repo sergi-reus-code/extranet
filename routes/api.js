@@ -1,4 +1,5 @@
 var express = require('express');
+const { result } = require('lodash');
 var router = express.Router();
 
 //const Usercontroller= require("../controllers/Usercontroller");
@@ -29,14 +30,25 @@ router.post('/',(req,res,next) => {
 
         const username = req.body.user.name
         const password = req.body.user.password
-        console.log(`usuario : ${username} / password : ${password}`);
+        console.log(`usuario : ${username} / contraseña : ${password}`);
         //console.log(req.body.user.name);
       
         res.send("OK POST" + username + "/" + password)
 
 
         //conectar base datos i coger ususrio
+var consulta= SELECT * FROM `usuarios` WHERE usuario=`username`AND contraseña=`password`;
 
+var result=mysql_query (conexion,consulta)
+
+var filas= mysql_num_rows (result)
+
+ if (filas) {
+     
+ } else {
+     
+ }
+ 
         //si no existe _> error de no usuari -> ir pagina singup
 
         //si existe comprovar password = password
