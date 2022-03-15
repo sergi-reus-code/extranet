@@ -42,8 +42,8 @@ const _ = require('lodash');
 
 
 //Modulos de las rutas
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var indexRouter = require('./routes/main');
+var usersRouter = require('./routes/login');
 var tareasRouter = require('./routes/tareas');
 var apiRouter = require('./routes/api');
 

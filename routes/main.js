@@ -12,17 +12,8 @@ router.get('/',function (req,res,next) {
 });
 
 
-/*
-router.get('/',function (req,res,next) {
 
-    var titulo = "TITULO DE index por que me da la gana"
 
-    console.log("estoy aqui");
 
-    //res.send('../public/signin.html');
-    res.render('../public/signin.html')
 
-});
-
-*/
 module.exports = router;

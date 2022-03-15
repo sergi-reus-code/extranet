@@ -8,30 +8,45 @@ var router = express.Router();
 //router.get('/login',Usercontroller.login);
 
 
-router.get('/upload_file',(req,res,next) => {
+router.get('/',(req,res,next) => {
 
         //comprovar email
         //comprovar password
         //a la base de dades
 
-        var headers = req.headers
+        
 
         console.log(req.headers);
 
-        //res.send('HELLO API')
-        res.send("OK")
-})
-
-router.post('/upload_file',(req,res,next) => {
-
-        
-
-        var headers = req.headers
-
-        console.log(req.headers.rodrigo);
+        console.log(req.body.username)
 
         //res.send('HELLO API')
-        res.send("OK")
+        res.send("OK GET")
+    })
+
+router.post('/',(req,res,next) => {
+    //console.log(req.headers);
+
+        const username = req.body.user.name
+        const password = req.body.user.password
+        console.log(`usuario : ${username} / password : ${password}`);
+        //console.log(req.body.user.name);
+      
+        res.send("OK POST" + username + "/" + password)
+
+
+        //conectar base datos i coger ususrio
+
+        //si no existe _> error de no usuari -> ir pagina singup
+
+        //si existe comprovar password = password
+
+        //si es igual ir a indexapp
+
+
+
+
+
 })
 
 router.post('/upload_file', async (req, res) => {

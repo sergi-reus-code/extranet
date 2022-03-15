@@ -4,7 +4,7 @@ var express = require('express');
 //const req = require('express/lib/request');
 var router = express.Router();
 
-const Usercontroller= require("../DBcontrollers/Usercontroller");
+const Usercontroller= require("../DBcontrollers/Logincontroller");
 
 
 
@@ -15,9 +15,9 @@ const Usercontroller= require("../DBcontrollers/Usercontroller");
 
 router.get('/',(req,res) => {
 
-    console.log("ASDFASDFASDF");
+    console.log("");
     var titulo = "TITULO DE index por que me da la gana"
-    //res.render('./users/signin', { title: titulo });
+    res.render('./login/signin', { title: titulo });
 
 
 
@@ -31,7 +31,7 @@ router.get('/login',Usercontroller.login);
 
 router.get('/testDO',(req,res) => {
 
-    console.log("aasdfasdf");
+    
 
     
     var titulo = "TITULO DE index por que me da la gana"
