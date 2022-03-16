@@ -17,16 +17,16 @@ router.get('/',(req,res) => {
 
 
 
-router.post('/',async function (req,res,next)  {
+router.post('/', async function (req,res,next)  {
    
         const username = req.body.user.name
         const password = req.body.user.password
 
-        const result = await loginUtils.checkUser(username, password)
+        const resultado = await loginUtils.checkUser(username, password)
 
-        console.log("dentro de post" + result);
-        
-        switch (result) {
+        //console.log(resultado);
+
+        switch (resultado) {
             case "ok":
 
                 res.send("TODO OK -> Username: " + username + " % password: " + password + " existe en la base de datos")
