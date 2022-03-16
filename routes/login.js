@@ -19,16 +19,13 @@ router.get('/',(req,res) => {
 
 router.post('/',async function (req,res,next)  {
    
-   
-    console.log("estoy en req.headers");
-
         const username = req.body.user.name
         const password = req.body.user.password
 
         const result = await loginUtils.checkUser(username, password)
 
-        console.log(" en post " + result);
-
+        console.log("dentro de post" + result);
+        
         switch (result) {
             case "ok":
 

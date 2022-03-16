@@ -1,5 +1,5 @@
 var mysql= require("mysql")
-
+const util = require("util"); 
 
 /*
 var con= mysql.createConnection({
@@ -39,6 +39,8 @@ var conDO= mysql.createConnection({
 }
 );
 
+conDO.query = util.promisify(conDO.query).bind(conDO);
+
 conDO.connect( 
 (err)=>{
   if (!err){
@@ -46,23 +48,6 @@ conDO.connect(
 
 
     
-  /*   
-
-   conDO.query("SELECT * FROM `usuarios` ", function (err, result, fields) {
-      if (err) throw err;
-      console.log(result[0].aa4);
-    }
-
-
-
-
-    );
-
-*/
-
-
-
-     
 
   }else{
      console.log('Error de conexión to Digital Ocean')

@@ -34,69 +34,52 @@ function newUser(){
 
 
 async function checkUser(HTMLusername, HTMLpassaword){
-  //var consulta= SELECT * FROM `usuarios` WHERE usuario=`username`AND contraseña=`password`;
+  
     console.log(`user: ${HTMLusername}    pass: ${HTMLpassaword}`);
 
     const SQL_query = "SELECT * FROM `usuarios` WHERE `username` = '"  + `${HTMLusername}` + "'";   
-    
-    //const tt = syncQuery(SQL_query)
 
-    var tt = ""
+    const result = await conexion.query(SQL_query).catch(err => { throw err}); 
 
-    conexion.query(SQL_query,  async function (err, result, fields) {
-      if (err) throw err;
+  
+    if (result.length = 0) {
+      
+        console.log("Usuario no encontrado");
+        retorno = "badUsername"
 
-        console.log(result);
-        tt = result
+    } else {
+      
+      DBpassword = result[0].password
 
-    })
+      if (DBpassword = HTMLpassaword ) {
+  
+        console.log("Usuario/Password correctos");
+        retorno = "ok"
+        
+      } else {
+
+
+        console.log("Password incorrecto");
+        retorno = "badPassword"
+
+      }
+
+
+    }
   
 
-    
-    console.log(tt);
-
-
-
-
-
-/*
-
-
-    var retorno = ""
-
-    conexion.query(SQL_query, function (err, result, fields) {
-      if (err) throw err;
       
-      
-      if (result.length == 0) {
-          retorno = "badUsername"
-      }
-
-      
-
-      console.log(result);
-
-      if (result.lenght == 1) {
-          retorno = "ok"
-      }
       
      
-      result.forEach(user => {
-
-        console.log(user);
-
-      });
       
-      //console.log(result[0].aa4);
-      //console.log(fields)
-    
+      console.log(result.length);
+      
 
-      console.log("wewer" + retorno);
-      return retorno
+     return retorno
 
 
     
-    })*/
+   
 
 
     
