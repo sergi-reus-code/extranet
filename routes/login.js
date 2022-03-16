@@ -17,7 +17,7 @@ router.get('/',(req,res) => {
 
 
 
-router.post('/',(req,res,next) => {
+router.post('/',async function (req,res,next)  {
    
    
     console.log("estoy en req.headers");
@@ -25,9 +25,9 @@ router.post('/',(req,res,next) => {
         const username = req.body.user.name
         const password = req.body.user.password
 
-        const result = loginUtils.checkUser(username, password)
+        const result = await loginUtils.checkUser(username, password)
 
-        console.log(result);
+        console.log(" en post " + result);
 
         switch (result) {
             case "ok":

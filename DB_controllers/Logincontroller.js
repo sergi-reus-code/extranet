@@ -10,29 +10,77 @@ function newUser(){
 
 
 
+ async function syncQuery (SQL_query) {
+
+  var resultados 
+
+
+  
+
+   const rr =  conexion.query(SQL_query,  function (err, result, fields) {
+    if (err) throw err;
+      resultados = result
+  })
+
+    
+    console.log(rr);
+
+  
+}
+
+
+
+
+
 
 async function checkUser(HTMLusername, HTMLpassaword){
   //var consulta= SELECT * FROM `usuarios` WHERE usuario=`username`AND contraseña=`password`;
-    console.log("eoooooooooooooooo");
+    console.log(`user: ${HTMLusername}    pass: ${HTMLpassaword}`);
 
-    const SQL_query = "SELECT * FROM `usuarios` WHERE `username` = 'sreusd'";   
-    //const SQL_query = "SELECT * FROM `usuarios` ";   
+    const SQL_query = "SELECT * FROM `usuarios` WHERE `username` = '"  + `${HTMLusername}` + "'";   
+    
+    //const tt = syncQuery(SQL_query)
+
+    var tt = ""
+
+    conexion.query(SQL_query,  async function (err, result, fields) {
+      if (err) throw err;
+
+        console.log(result);
+        tt = result
+
+    })
+  
+
+    
+    console.log(tt);
 
 
-    var retorno = "mal"
 
-     conexion.query(SQL_query, function (err, result, fields) {
+
+
+/*
+
+
+    var retorno = ""
+
+    conexion.query(SQL_query, function (err, result, fields) {
       if (err) throw err;
       
       
-      console.log(result.lenght);
-
-
-      if (result.lenght == 0) {
+      if (result.length == 0) {
           retorno = "badUsername"
       }
+
       
+
+      console.log(result);
+
+      if (result.lenght == 1) {
+          retorno = "ok"
+      }
       
+     
       result.forEach(user => {
 
         console.log(user);
@@ -42,12 +90,16 @@ async function checkUser(HTMLusername, HTMLpassaword){
       //console.log(result[0].aa4);
       //console.log(fields)
     
+
+      console.log("wewer" + retorno);
+      return retorno
+
+
     
-    })
+    })*/
 
 
-
-    return retorno
+    
 
 }
 
