@@ -9,7 +9,7 @@ router.get('/',(req,res) => {
 
     console.log("esoy en login");
     var titulo = "TITULO DE index por que me da la gana"
-    res.render('./login/signin', { title: titulo });
+    res.render('./log/signin', { title: titulo });
 
 
 
