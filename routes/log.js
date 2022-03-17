@@ -7,7 +7,7 @@ const logUtils= require("../DB_Controllers/loginController");
 /* LOGIN PAGE */
 router.get('/',(req,res) => {
 
-    console.log("esoy en login");
+    console.log("esttoy en login");
     var titulo = "TITULO DE index por que me da la gana"
     res.render('./log/signin', { title: titulo });
 
