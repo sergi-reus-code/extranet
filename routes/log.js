@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const loginUtils= require("../DB_Controllers/loginController");
+const logUtils= require("../DB_Controllers/loginController");
 
 
 /* LOGIN PAGE */
@@ -22,7 +22,7 @@ router.post('/', async function (req,res,next)  {
         const username = req.body.user.name
         const password = req.body.user.password
 
-        const resultado = await loginUtils.checkUser(username, password)
+        const resultado = await logUtils.checkUser(username, password)
 
         //console.log(resultado);
 
