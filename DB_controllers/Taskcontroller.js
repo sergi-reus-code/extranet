@@ -1,45 +1,53 @@
+const res = require('express/lib/response');
 var conexion = require('../config/conexion');
-var user= require("../model/user");
 
 
-module.exports={
+async function taskUser(HTMLusername, HTMLpassaword){
+  
+    const SQL_query = "SELECT * FROM `usuarios` WHERE `username` = '"  + `${HTMLusername}` + "'";   
 
-index:function (req, res) { 
+    const result = await conexion.query(SQL_query).catch(err => { throw err}); 
 
-    user.obtener(conexion,function (err,datos) {
+    console.log(result)
+
+    
+
+    if (result.length == 1) {
       
-      console.log(datos);
+      var DBpassword = result[0].password
+
+      if (DBpassword == HTMLpassaword) {
+
+        //console.log("son iguales!!!!");
+        
+        return "ok"
+        
+      } else {
+
+          //console.log("password no coinciden");
+          
+          return "badPassword"
+
+      }
+
+    } else {
+
+      //console.log("usuario no coincide");
       
-      res.render('users/index', { title: 'Aplicación', users:datos });
-
-    });
-
-   
-     
-  },
-
-  login:function (req, res) { 
-
-    user.obtener(conexion,function (err,datos) {
-      
-      console.log(datos);
-      
-      res.render('users/index', { title: 'Aplicación', users:datos });
-
-    });
-
-   
-     
-  },
+      return "badUsername"
 
 
+    }
 
-
-  crear: function (req,res) {
-        res.render('users/signup');
-
-
-  }
+    
 
 }
+
+
+module.exports = {
+
+  checkUser
+
+}
+
 
