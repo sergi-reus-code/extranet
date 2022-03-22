@@ -34,7 +34,7 @@ var conDO= mysql.createConnection({
    port: 25060,
    user: 'node_user',
    password: 'xfL2FewBsBKY6Tpu',
-   database:'EXTRANET_DB'
+   database:'extranet_db'
    //sslmode: 'REQUIRED'
 }
 );

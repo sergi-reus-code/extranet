@@ -1,3 +1,4 @@
+const res = require('express/lib/response');
 var conexion = require('../config/conexion');
 
 
@@ -6,6 +7,10 @@ async function checkUser(HTMLusername, HTMLpassaword){
     const SQL_query = "SELECT * FROM `usuarios` WHERE `username` = '"  + `${HTMLusername}` + "'";   
 
     const result = await conexion.query(SQL_query).catch(err => { throw err}); 
+
+    console.log(result)
+
+    
 
     if (result.length == 1) {
       
