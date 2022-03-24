@@ -1,77 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- CSS -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
-    <!-- Default theme -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css" />
-    <title>fetch CRUD</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Document</title>
 </head>
-
 <body>
-    <form method="post" action="../task/tareas" class="formulario_signin">
 
-    <div class="container">
-        <button id="btnCrear" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTareas"
-            data-bs-whatever="@getbootstrap">Crear</button>
+<table class="table table-light">
+    <thead class="thead-light">
+        <tr>
+            <th>#</th>
+            <th>TituloTarea</th>
+            <th>Descripción</th>
+            <th>Fecha</th>
+            <th>IdTarea</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for( let tareas = 0; tareas < tareas.length; tareas++ ) { %>
+        
+        <tr>
+            <td> <%=tarea[tareas].id_tarea%> </td>
+            <td><%=tarea[tareas].TituloTarea%> </td>
+            <td><%=tarea[tareas].Descripción%></td>
+            <td><%=tarea[tareas].Fecha%></td>
+            <td> <%=tarea[tareas].IdTarea%> </td>
+            <td>Editar ! Borrar</td>
 
-        <table id="tablaTareas" class="table mt-2 tabl-bordered table striped">
-            <thead>
-                <tr class="text-center">
-                    <th>ID</th>
-                    <th>Titulo Tarea</th>
-                    <th>Descripción</th>
-                    <th>Fecha Creación</th>
-                    <th>ID Usuario</th>
-
-                </tr>
-            </thead>
-
-        </table>
-    </div>
-
-</form>
-
-    <div id="modalTareas"   class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="Titulo Tarea" class="col-form-label">Titulo Tarea:</label>
-                            <input id="Titulo Tarea" type="text" class="form-control" autofocus >
-                        </div>
-                     
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-    <!-- JavaScript -->
-    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-    <script src="../assets/js/script.min.js"></script>
-
+       <% } %>    
+        </tr>
+    </tbody>
+</table>
 </body>
-
 </html>
