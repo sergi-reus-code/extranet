@@ -21,14 +21,15 @@
         </tr>
     </thead>
     <tbody>
-        <% for( let tareas = 0; tareas < tareas.length; tareas++ ) { %>
+        <% for( let i = 0; i < tareas.length; i++ ) { %>
         
         <tr>
-            <td> <%=tarea[tareas].id_tarea%> </td>
-            <td><%=tarea[tareas].TituloTarea%> </td>
-            <td><%=tarea[tareas].Descripción%></td>
-            <td><%=tarea[tareas].Fecha%></td>
-            <td> <%=tarea[tareas].IdTarea%> </td>
+            <td> <%=tareas[i].id_tarea%> </td>
+            
+            <td><%=tareas[i].TituloTarea%> </td>
+            <td><%=tareas[i].Descripción%></td>
+            <td><%=tareas[i].Fecha%></td>
+            <td> <%=tareas[i].IdTarea%> </td>
             <td>Editar ! Borrar</td>
 
        <% } %>    
