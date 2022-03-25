@@ -7,11 +7,9 @@ const logUtils= require("../DB_Controllers/loginController");
 
                 console.log("estoy Tareas");
                 var titulo = "TITULO DE index por que me da la gana"
-                res.render('./task/tareas', { title: titulo });
+                res.render('./task/tarea', { title: titulo });
             
-            
-            
-            });
+                      });
 
 
 
