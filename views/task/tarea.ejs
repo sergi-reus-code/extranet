@@ -12,27 +12,33 @@
 <table class="table table-light">
     <thead class="thead-light">
         <tr>
-            <th>#</th>
-            <th>TituloTarea</th>
-            <th>Descripción</th>
-            <th>Fecha</th>
-            <th>IdTarea</th>
+            <th>id_tarea</th>
+            <th>titulo_tarea</th>
+            <th>descp_tarea</th>
+            <th>fecha_creacion</th>
+            <th>id_usuario</th>
             <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
+
+
         <% for( let i = 0; i < tareas.length; i++ ) { %>
         
-        <tr>
-            <td> <%=tareas[i].id_tarea%> </td>
-            
-            <td><%=tareas[i].TituloTarea%> </td>
-            <td><%=tareas[i].Descripción%></td>
-            <td><%=tareas[i].Fecha%></td>
-            <td> <%=tareas[i].IdTarea%> </td>
-            <td> Editar ! Borrar</td>
-                                                                                                        
-        </tr>
+            <tr>
+                <td> <%=tareas[i].id_tarea  %> </td>    
+                <td> <%=tareas[i].titulo_tarea  %> </td>
+                <td> <%=tareas[i].descp_tarea  %> </td>
+                <td> <%=tareas[i].fecha_creacion  %> </td>
+                <td> <%=tareas[i].id_usuario  %>- </td>
+                <td> Editar | Borrar</td>
+    
+            </tr>
+
+        <% } %>
+      
+   
+
     </tbody>
 </table>
 </body>

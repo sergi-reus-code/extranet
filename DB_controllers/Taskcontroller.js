@@ -4,7 +4,7 @@ var conexion = require('../config/conexion');
 
 async function taskUser(HTMLusername, HTMLpassaword){
   
-    const SQL_query = "SELECT * FROM `usuarios` WHERE `username` = '"  + `${HTMLusername}` + "'";   
+    const SQL_query = "SELECT * FROM `tareas` WHERE `tareas` = '"  + `${HTMLusername}` + "'";   
 
     const result = await conexion.query(SQL_query).catch(err => { throw err}); 
 
