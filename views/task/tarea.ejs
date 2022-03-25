@@ -9,6 +9,16 @@
 </head>
 <body>
 
+
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link active" href="./login/">Iniciar sesion</a></li>
+        <li class="nav-item"></li>
+        <li class="nav-item"></li>
+        <li class="nav-item"><a class="nav-link active" href="./tareas">tarea</a></li>
+    </ul>
+
+
+
 <table class="table table-light">
     <thead class="thead-light">
         <tr>
@@ -18,10 +28,11 @@
             <th>fecha_creacion</th>
             <th>id_usuario</th>
             <th>Acciones</th>
+            
         </tr>
     </thead>
     <tbody>
-
+<!-- Aquí puedes escribir tu comentario -->
 
         <% for( let i = 0; i < tareas.length; i++ ) { %>
         
@@ -31,8 +42,8 @@
                 <td> <%=tareas[i].descp_tarea  %> </td>
                 <td> <%=tareas[i].fecha_creacion  %> </td>
                 <td> <%=tareas[i].id_usuario  %>- </td>
-                <td> Editar | Borrar</td>
-    
+                
+                <td> </td>
             </tr>
 
         <% } %>
