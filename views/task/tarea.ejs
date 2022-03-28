@@ -10,11 +10,15 @@
 <body>
 
 
+
+
+
     <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link active" href="./login/">Iniciar sesion</a></li>
-        <li class="nav-item"></li>
-        <li class="nav-item"></li>
-        <li class="nav-item"><a class="nav-link active" href="./tareas">tarea</a></li>
+
+
+        <li class="nav-item">Usuario : <a class="nav-link active" href="./login/"> Nombre usuario</a></li>
+        <li class="nav-item"><a class="nav-link active" href="./login/"> Crear nueva tarea</a></li>
+     
     </ul>
 
 
@@ -43,7 +47,16 @@
                 <td> <%=tareas[i].fecha_creacion  %> </td>
                 <td> <%=tareas[i].id_usuario  %>- </td>
                 
-                <td> </td>
+                <td> 
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link active" href="./login/"> Editar</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="./login/"> Borrar</a></li>
+                    </ul>
+
+
+
+
+                </td>
             </tr>
 
         <% } %>
