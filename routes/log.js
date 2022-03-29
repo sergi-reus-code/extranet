@@ -29,19 +29,19 @@ router.post('/', async function (req,res,next)  {
         switch (resultado) {
             case "ok":
 
-                res.send("TODO OK -> Username: " + username + " % password: " + password + " existe en la base de datos")
+                 res.redirect('/tareas');("TODO OK -> Username: " + username + " % password: " + password + " existe en la base de datos")
             
             break;
         
             case "badUsername":
                 
-                res.send("USUARIO NO ENCONTRADO -> Username: " + username + " no existe en la base de datos")
+                 res.redirect('/login');("USUARIO NO ENCONTRADO -> Username: " + username + " no existe en la base de datos")
 
             break;
 
             case "badPassword":
 
-                res.send("PASSWORD INCORRECTO PARA EL USUARIO -> Username: " + username)
+                res.redirect('/login');("PASSWORD INCORRECTO PARA EL USUARIO -> Username: " + username)
             
             break;
 
