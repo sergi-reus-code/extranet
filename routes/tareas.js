@@ -5,20 +5,32 @@ const listTask= require("../DB_Controllers/Taskcontroller");
 
       
 
-const datos = [{ 
+const datos_tareas = [{ 
         id_tarea:'1',
         titulo_tarea:'1',
         descp_tarea :'1',
         fecha_creacion:'1',
         id_usuario : '1'},{
-                id_tarea:'2',
-                titulo_tarea:'2',
-                descp_tarea :'2',
-                fecha_creacion:'2',
-                id_usuario : '2'
+        id_tarea:'2',
+        titulo_tarea:'2',
+        descp_tarea :'2',
+        fecha_creacion:'2',
+        id_usuario : '2'
         }]
 
-
+const datos_usuario = [
+         {
+          id_usuario: 1,
+          Nombre: 'Sergi',
+          apellidos: 'Reus',
+          fecha_creacion: "2022-02-24T23:00:00.000Z",
+          username: 'sreus',
+          password: 'sreuspassword',
+          rol: 'master',
+          telf: '690849407',
+          email: 'sreus@reuscontruccions.com'
+        }
+      ]
 
 
 
@@ -32,7 +44,8 @@ router.get('/',(req,res) => {
 
                 console.log("estoy Tareas");
                 var titulo = "TITULO DE index por que me da la gana"
-                res.render('./task/tarea', { tareas : datos });
+                res.render('./task/tarea', { tareas : datos_tareas,
+                                             usuario : datos_usuario });
 
                 
             
