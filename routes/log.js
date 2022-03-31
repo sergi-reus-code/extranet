@@ -39,13 +39,13 @@ router.post('/', async function (req,res,next)  {
             case "badUsername":
              
 
-                 res.redirect(850,'/error/');//("USUARIO NO ENCONTRADO -> Username: " + username + " no existe en la base de datos")
+                 res.redirect(850,'/error/',"USUARIO NO ENCONTRADO -> Username: " + username + " no existe en la base de datos")
 
             break;
 
             case "badPassword":
 
-                res.redirect(860,'/error/');//("PASSWORD INCORRECTO PARA EL USUARIO -> Username: " + username)
+                res.redirect(860,'/error/',"PASSWORD INCORRECTO PARA EL USUARIO -> Username: " + username)
             
             break;
 

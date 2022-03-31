@@ -46,6 +46,7 @@ var mainRouter = require('./routes/main');
 var logRouter = require('./routes/log');
 var tareasRouter = require('./routes/tareas');
 var apiRouter = require('./routes/api');
+var errorRouter = require('./routes/error');
 
 // Servidor Express
 var app = express();
@@ -92,6 +93,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', mainRouter);
 app.use('/login', logRouter);
 app.use('/tareas', tareasRouter);
+app.use('/error', errorRouter);
 
 //api endpoints
 app.use('/api', apiRouter);
