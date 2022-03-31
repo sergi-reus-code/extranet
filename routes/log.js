@@ -48,7 +48,7 @@ router.post('/', async function (req,res,next)  {
             case "badPassword":
 
                 //*res.redirect(860,'../error/',"PASSWORD INCORRECTO PARA EL USUARIO -> Username: " + username)
-                res.redirect('/error/badpassword')
+                res.redirect('/error1/badpassword')
 
             break;
 
