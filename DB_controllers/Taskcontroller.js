@@ -4,13 +4,15 @@ var conexion = require('../config/conexion');
 
 async function listTask(HTMLusername){
   
-    const SQL_query = "SELECT * FROM `tareas` WHERE `tareas` = '"  + `${HTMLtareas}` + "'";   
+    //const SQL_query = "SELECT * FROM `tareas` WHERE `tareas` = 1";  
+
+    const SQL_query = "SELECT `tareas`.* FROM `tareas`";
 
     const result = await conexion.query(SQL_query).catch(err => { throw err}); 
 
-    console.log(result)  
+    //console.log(result)  
    
-  return "tareas"
+  return result
 
 }
 

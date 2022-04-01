@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-const listTask= require("../DB_Controllers/Taskcontroller");
+const taskUtils= require("../DB_Controllers/Taskcontroller");
 
-      
 
+
+
+/*
 const datos_tareas = [{ 
         id_tarea:'1',
         titulo_tarea:'1',
@@ -17,7 +19,7 @@ const datos_tareas = [{
         fecha_creacion:'2',
         id_usuario : '2'
         }]
-
+*/
 const datos_usuario = [
          {
           id_usuario: 1,
@@ -40,7 +42,10 @@ const datos_usuario = [
         { name: 'Moby Dock', organization: "Docker", birth_year: 2013}
     ];*/
 
-router.get('/',(req,res) => {
+router.get('/',async function (req,res,next) {
+
+        const datos_tareas = await taskUtils.listTask("sreus")
+        
 
                 console.log("estoy Tareas");
                 var titulo = "TITULO DE index por que me da la gana"
