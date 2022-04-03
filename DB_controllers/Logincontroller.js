@@ -33,7 +33,7 @@ async function checkUser(HTMLusername, HTMLpassaword){
     } else {
 
       //console.log("usuario no coincide");
-      
+     
       return "badUsername"
 
 

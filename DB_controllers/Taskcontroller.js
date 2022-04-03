@@ -2,51 +2,23 @@ const res = require('express/lib/response');
 var conexion = require('../config/conexion');
 
 
-async function taskUser(HTMLusername, HTMLpassaword){
+async function listTask(HTMLid_tarea){
   
-    const SQL_query = "SELECT * FROM `usuarios` WHERE `username` = '"  + `${HTMLusername}` + "'";   
+    //const SQL_query = "SELECT * FROM `tareas` WHERE `tareas` = 1";  
+
+    const SQL_query = "SELECT `tareas`.* FROM `tareas`";
 
     const result = await conexion.query(SQL_query).catch(err => { throw err}); 
 
-    console.log(result)
-
-    
-
-    if (result.length == 1) {
-      
-      var DBpassword = result[0].password
-
-      if (DBpassword == HTMLpassaword) {
-
-        //console.log("son iguales!!!!");
-        
-        return "ok"
-        
-      } else {
-
-          //console.log("password no coinciden");
-          
-          return "badPassword"
-
-      }
-
-    } else {
-
-      //console.log("usuario no coincide");
-      
-      return "badUsername"
-
-
-    }
-
-    
+    //console.log(result)  
+   
+  return result
 
 }
 
-
 module.exports = {
 
-  checkUser
+  listTask
 
 }
 

@@ -1,51 +1,60 @@
 var express = require('express');
 var router = express.Router();
 
-//const logUtils= require("../DB_Controllers/loginController");
-
-        router.get('/',(req,res) => {
-
-               // Agafar les tareas de SQL i ficar-les amb JSON
-               // Pasar jason a EJS - tareas         
+const taskUtils= require("../DB_Controllers/Taskcontroller");
 
 
 
+
+/*
+const datos_tareas = [{ 
+        id_tarea:'1',
+        titulo_tarea:'1',
+        descp_tarea :'1',
+        fecha_creacion:'1',
+        id_usuario : '1'},{
+        id_tarea:'2',
+        titulo_tarea:'2',
+        descp_tarea :'2',
+        fecha_creacion:'2',
+        id_usuario : '2'
+        }]
+*/
+const datos_usuario = [
+         {
+          id_usuario: 1,
+          Nombre: 'Sergi',
+          apellidos: 'Reus',
+          fecha_creacion: "2022-02-24T23:00:00.000Z",
+          username: 'sreus',
+          password: 'sreuspassword',
+          rol: 'master',
+          telf: '690849407',
+          email: 'sreus@reuscontruccions.com'
+        }
+      ]
+
+
+
+/*var mascots = [
+        { name: 'Sammy', organization: "DigitalOcean", birth_year: 2012},
+        { name: 'Tux', organization: "Linux", birth_year: 1996},
+        { name: 'Moby Dock', organization: "Docker", birth_year: 2013}
+    ];*/
+
+router.get('/',async function (req,res,next) {
+
+        const datos_tareas = await taskUtils.listTask("sreus")
+        
 
                 console.log("estoy Tareas");
                 var titulo = "TITULO DE index por que me da la gana"
+                res.render('./task/tarea', { tareas : datos_tareas,
+                                             usuario : datos_usuario });
 
-                 
-  
-                //Datos en array de objetos JSON
-                var datos = [{
-                    
-                    id_tarea : "1asdf",
-                    TituloTarea : "asdf",
-                    Descripción : "asdfas",
-                    Fecha : "asdfasd",
-                    IdTarea : "dasf"            
-                },{
-                    
-                id_tarea : "2asdf",
-                TituloTarea : "2asdf",
-                Descripción : "2asdfas",
-                Fecha : "2asdfasd",
-                IdTarea : "d2asf"            
-                }
-        
-        
-        
-        
-        
-        
-        ]   
-
-
-                res.render('./task/tareas', { tareas: datos });
+                
             
-            
-            
-            });
+                      });
 
 
 

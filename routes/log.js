@@ -7,13 +7,17 @@ const logUtils= require("../DB_Controllers/loginController");
 /* LOGIN PAGE */
 router.get('/',(req,res) => {
 
-    console.log("estoy en login");
+
+
+
+    console.log(req.headers);
     var titulo = "TITULO DE index por que me da la gana"
     res.render('./log/signin', { title: titulo });
 
 
 
 });
+
 
 
 
@@ -29,20 +33,23 @@ router.post('/', async function (req,res,next)  {
         switch (resultado) {
             case "ok":
 
-                res.send("TODO OK -> Username: " + username + " % password: " + password + " existe en la base de datos")
+                 res.redirect('/tareas');//("TODO OK -> Username: " + username + " % password: " + password + " existe en la base de datos")
             
             break;
         
             case "badUsername":
-                
-                res.send("USUARIO NO ENCONTRADO -> Username: " + username + " no existe en la base de datos")
+             
+
+                 //res.redirect(850,'/error/',"USUARIO NO ENCONTRADO -> Username: " + username + " no existe en la base de datos")
+                res.redirect('/error/badusername')
 
             break;
 
             case "badPassword":
 
-                res.send("PASSWORD INCORRECTO PARA EL USUARIO -> Username: " + username)
-            
+                //*res.redirect(860,'../error/',"PASSWORD INCORRECTO PARA EL USUARIO -> Username: " + username)
+                res.redirect('/error/badpassword')
+
             break;
 
             default:
