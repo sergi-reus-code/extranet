@@ -10,7 +10,7 @@ async function listTask(HTMLid_tarea){
 
     const result = await conexion.query(SQL_query).catch(err => { throw err}); 
 
-    console.log(result)  
+   // console.log(result)  
    
   return result
 
