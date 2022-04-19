@@ -7,8 +7,8 @@ const taskUtils= require("../DB_Controllers/Taskcontroller");
 
 
 
-*/
-//const datos_usuario = [
+
+const datos_usuario = [
          {
           id_usuario: 1,
           Nombre: 'Sergi',
