@@ -48,13 +48,7 @@ router.get('/',async function (req,res,next) {
                       });
 
 
-
-
-    
-    
-        
-
-
+                      
 
 
 
