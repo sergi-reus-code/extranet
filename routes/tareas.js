@@ -49,9 +49,7 @@ router.get('/',async function (req,res,next) {
 
 
                       
-
-
-                      router.get('/',async function (req,res,next) {
+router.get('/crear',async function (req,res,next) {
 
                         const datos_tareas = await taskUtils.listTask("sreus")
                         
@@ -66,6 +64,10 @@ router.get('/',async function (req,res,next) {
                                 
                             
                                       });
+
+
+
+                                      
                 
 
 
