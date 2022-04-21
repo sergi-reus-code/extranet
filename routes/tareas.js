@@ -51,7 +51,22 @@ router.get('/',async function (req,res,next) {
                       
 
 
+                      router.get('/',async function (req,res,next) {
 
+                        const datos_tareas = await taskUtils.listTask("sreus")
+                        
+                
+                                console.log("estoy Tareas");
+                
+                                console.log(datos_tareas);
+                        
+                                var titulo = "TITULO DE index por que me da la gana"
+                                res.render('./task/crear', );
+                
+                                
+                            
+                                      });
+                
 
 
 module.exports = router;
