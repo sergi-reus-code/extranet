@@ -51,22 +51,53 @@ router.get('/',async function (req,res,next) {
 
 
   // Crud           
-router.post('/crear',async function (req,res,next) {
+router.get('/crear',async function (req,res,next) {
 
-        const titulo_tarea = req.body.user.titulo_tarea
-        const descp_tarea = req.body.user.descp_tarea  
-        const fecha_creacion = req.body.user.fecha_creacion
-        const id_usuario = req.body.user.id_usuario          
-                                console.log("estoy Tareas");
+        //const titulo_tarea = req.body.user.titulo_tarea
+        //const descp_tarea = req.body.user.descp_tarea  
+        //const fecha_creacion = req.body.user.fecha_creacion
+        //const id_usuario = req.body.user.id_usuario          
+                                //console.log("estoy Tareas");
                 
-                                console.log(datos_tareas);
-                        
+                                //console.log(datos_tareas);
+                                
                                 var titulo = "TITULO DE index por que me da la gana"
                                 res.render('./task/crear', );
                 
                                 
                             
                                       });
+
+                                      
+
+
+ router.post('/crear',async function (req,res,next) {
+
+       
+        const resultado_crear = await taskUtils.createTask("sreus")
+
+
+        
+
+        const datos_tareas = await taskUtils.listTask("sreus")
+        
+                                        //const titulo_tarea = req.body.user.titulo_tarea
+                                        //const descp_tarea = req.body.user.descp_tarea  
+                                        //const fecha_creacion = req.body.user.fecha_creacion
+                                        //const id_usuario = req.body.user.id_usuario          
+                                                                //console.log("estoy Tareas");
+                                                
+                                                                console.log("putamare");
+                                                        
+                                                                var titulo = "TITULO DE index por que me da la gana"
+                                                                
+                                                                // si tot ok
+                                                                res.render('./task/tarea', { tareas : datos_tareas,
+                                                                        usuario : datos_usuario });
+                                                
+                                                                
+                                                            
+                                                                      });
 
 // crUd
 
