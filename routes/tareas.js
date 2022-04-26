@@ -30,6 +30,8 @@ const datos_usuario = [
         { name: 'Moby Dock', organization: "Docker", birth_year: 2013}
     ];*/
 
+// cRud
+
 router.get('/',async function (req,res,next) {
 
         const datos_tareas = await taskUtils.listTask("sreus")
@@ -48,8 +50,8 @@ router.get('/',async function (req,res,next) {
                       });
 
 
-                      
-router.get('/crear',async function (req,res,next) {
+  // Crud           
+router.post('/crear',async function (req,res,next) {
 
                         const datos_tareas = await taskUtils.listTask("sreus")
                         
@@ -65,10 +67,46 @@ router.get('/crear',async function (req,res,next) {
                             
                                       });
 
+// crUd
 
+router.post('/',async function (req,res,next) {
 
+        const datos_tareas = await taskUtils.listTask("sreus")
+        
+
+                console.log("estoy Tareas");
+
+                console.log(datos_tareas);
+        
+                var titulo = "TITULO DE index por que me da la gana"
+                res.render('./task/tarea', { tareas : datos_tareas,
+                                             usuario : datos_usuario });
+
+                
+            
+                      });
                                       
                 
+// cruD
+router.post('/',async function (req,res,next) {
 
+        //rebre username. i l tarea.id        
+        const username = req.body.user.username.id
+        const tarea_id = req.body.user.tareaid
+
+        const resultado_borrado = await taskUtils.deleteTask(username,tarea_id)
+        
+
+                console.log("estoy Tareas");
+
+                console.log(datos_tareas);
+        
+                var titulo = "TITULO DE index por que me da la gana"
+                res.render('./task/tarea', { tareas : datos_tareas,
+                                             usuario : datos_usuario });
+
+                
+            
+                      });
 
 module.exports = router;
