@@ -19,20 +19,13 @@ async function listTask(HTMLid_tarea){
 
 }
 
-async function deleteTask(username, tarea_id){
+async function createTask(titulo_tarea, id_usuario){
   
-  
-  HTMLid_tarea = 2;
-
-  const SQL_query = "SELECT * FROM `tareas` WHERE `tareas`.`id_tarea` = " + HTMLid_tarea ;  
-  //const SQL_query = "SELECT * FROM `tareas` WHERE `tareas`.`id_tarea` = 2" ;
-  //const SQL_query = "SELECT `tareas`.* FROM `tareas`";
-
-  const result = await conexion.query(SQL_query).catch(err => { throw err}); 
-
- // console.log(result)  
+const SQL_query = "INSERT INTO tareas ( titulo_tarea, descp_tarea, fecha_creacion, id_usuario ) values (?,?,?,?) "  ;  
  
 return result
+
+
 
 }
 
