@@ -53,9 +53,10 @@ router.get('/',async function (req,res,next) {
   // Crud           
 router.post('/crear',async function (req,res,next) {
 
-                        const datos_tareas = await taskUtils.listTask("sreus")
-                        
-                
+        const titulo_tarea = req.body.user.titulo_tarea
+        const descp_tarea = req.body.user.descp_tarea  
+        const fecha_creacion = req.body.user.fecha_creacion
+        const id_usuario = req.body.user.id_usuario          
                                 console.log("estoy Tareas");
                 
                                 console.log(datos_tareas);
@@ -69,7 +70,11 @@ router.post('/crear',async function (req,res,next) {
 
 // crUd
 
-router.post('/',async function (req,res,next) {
+router.post('/edit',async function (req,res,next) {
+
+         //rebre username. i l tarea.id        
+         const username = req.body.user.username.id
+         const tarea_id = req.body.user.tareaid
 
         const datos_tareas = await taskUtils.listTask("sreus")
         
@@ -88,7 +93,7 @@ router.post('/',async function (req,res,next) {
                                       
                 
 // cruD
-router.post('/',async function (req,res,next) {
+router.post('/delete',async function (req,res,next) {
 
         //rebre username. i l tarea.id        
         const username = req.body.user.username.id
