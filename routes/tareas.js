@@ -73,13 +73,19 @@ router.get('/crear',async function (req,res,next) {
 
  router.post('/crear',async function (req,res,next) {
 
-       
-        const resultado_crear = await taskUtils.createTask("sreus")
+       console.log("pepepeepp");
+        console.log(req.body);
+
+
+
+
+
+        //const resultado_crear = await taskUtils.createTask("sreus")
 
 
         
 
-        const datos_tareas = await taskUtils.listTask("sreus")
+        //const datos_tareas = await taskUtils.listTask("sreus")
         
                                         //const titulo_tarea = req.body.user.titulo_tarea
                                         //const descp_tarea = req.body.user.descp_tarea  
@@ -92,12 +98,11 @@ router.get('/crear',async function (req,res,next) {
                                                                 var titulo = "TITULO DE index por que me da la gana"
                                                                 
                                                                 // si tot ok
-                                                                res.render('./task/tarea', { tareas : datos_tareas,
-                                                                        usuario : datos_usuario });
+                                                                //res.render('./task/tarea', { tareas : datos_tareas, usuario : datos_usuario });
                                                 
                                                                 
                                                             
-                                                                      });
+        });
 
 // crUd
 
