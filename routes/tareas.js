@@ -1,28 +1,21 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
-const taskUtils= require("../DB_Controllers/Taskcontroller");
-
-
-
-
-
+const taskUtils = require("../DB_Controllers/Taskcontroller");
 
 const datos_usuario = [
-         {
-          id_usuario: 1,
-          Nombre: 'Sergi',
-          apellidos: 'Reus',
-          fecha_creacion: "2022-02-24T23:00:00.000Z",
-          username: 'sreus',
-          password: 'sreuspassword',
-          rol: 'master',
-          telf: '690849407',
-          email: 'sreus@reuscontruccions.com'
-        }
-      ]
-
-
+  {
+    id_usuario: 1,
+    Nombre: "Sergi",
+    apellidos: "Reus",
+    fecha_creacion: "2022-02-24T23:00:00.000Z",
+    username: "sreus",
+    password: "sreuspassword",
+    rol: "master",
+    telf: "690849407",
+    email: "sreus@reuscontruccions.com",
+  },
+];
 
 /*var mascots = [
         { name: 'Sammy', organization: "DigitalOcean", birth_year: 2012},
@@ -32,122 +25,76 @@ const datos_usuario = [
 
 // cRud
 
-router.get('/',async function (req,res,next) {
+router.get("/", async function (req, res, next) {
+  const datos_tareas = await taskUtils.listTask("sreus");
 
-        const datos_tareas = await taskUtils.listTask("sreus")
-        
+  console.log("estoy Tareas");
 
-                console.log("estoy Tareas");
+  console.log(datos_tareas);
 
-                console.log(datos_tareas);
-        
-                var titulo = "TITULO DE index por que me da la gana"
-                res.render('./task/tarea', { tareas : datos_tareas,
-                                             usuario : datos_usuario });
+  var titulo = "TITULO DE index por que me da la gana";
+  res.render("./task/tarea", { tareas: datos_tareas, usuario: datos_usuario });
+});
 
-                
-            
-                      });
+// Crud
+router.get("/crear", async function (req, res, next) {
+  res.render("./task/crear");
+});
 
+router.post("/crear", async function (req, res, next) {
+  console.log("pepepeepp");
+  console.log(req.body);
 
-  // Crud           
-router.get('/crear',async function (req,res,next) {
+  //const resultado_crear = await taskUtils.createTask("sreus")
+  //const datos_tareas = await taskUtils.listTask("sreus")
 
-        //const titulo_tarea = req.body.user.titulo_tarea
-        //const descp_tarea = req.body.user.descp_tarea  
-        //const fecha_creacion = req.body.user.fecha_creacion
-        //const id_usuario = req.body.user.id_usuario          
-                                //console.log("estoy Tareas");
-                
-                                //console.log(datos_tareas);
-                                
-                                var titulo = "TITULO DE index por que me da la gana"
-                                res.render('./task/crear', );
-                
-                                
-                            
-                                      });
+  //const titulo_tarea = req.body.user.titulo_tarea
+  //const descp_tarea = req.body.user.descp_tarea
+  //const fecha_creacion = req.body.user.fecha_creacion
+  //const id_usuario = req.body.user.id_usuario
+  //console.log("estoy Tareas");
 
-                                      
+  console.log("putamare");
 
+  var titulo = "TITULO DE index por que me da la gana";
 
- router.post('/crear',async function (req,res,next) {
+  // si tot ok
 
-       console.log("pepepeepp");
-        console.log(req.body);
-
-
-
-
-
-        //const resultado_crear = await taskUtils.createTask("sreus")
-
-
-        
-
-        //const datos_tareas = await taskUtils.listTask("sreus")
-        
-                                        //const titulo_tarea = req.body.user.titulo_tarea
-                                        //const descp_tarea = req.body.user.descp_tarea  
-                                        //const fecha_creacion = req.body.user.fecha_creacion
-                                        //const id_usuario = req.body.user.id_usuario          
-                                                                //console.log("estoy Tareas");
-                                                
-                                                                console.log("putamare");
-                                                        
-                                                                var titulo = "TITULO DE index por que me da la gana"
-                                                                
-                                                                // si tot ok
-                                                                //res.render('./task/tarea', { tareas : datos_tareas, usuario : datos_usuario });
-                                                
-                                                                
-                                                            
-        });
+  //res.render('../../tarea');
+  res.redirect("../tareas");
+});
 
 // crUd
 
-router.post('/edit',async function (req,res,next) {
+router.post("/edit", async function (req, res, next) {
+  //rebre username. i l tarea.id
+  const username = req.body.user.username.id;
+  const tarea_id = req.body.user.tareaid;
 
-         //rebre username. i l tarea.id        
-         const username = req.body.user.username.id
-         const tarea_id = req.body.user.tareaid
+  const datos_tareas = await taskUtils.listTask("sreus");
 
-        const datos_tareas = await taskUtils.listTask("sreus")
-        
+  console.log("estoy Tareas");
 
-                console.log("estoy Tareas");
+  console.log(datos_tareas);
 
-                console.log(datos_tareas);
-        
-                var titulo = "TITULO DE index por que me da la gana"
-                res.render('./task/tarea', { tareas : datos_tareas,
-                                             usuario : datos_usuario });
+  var titulo = "TITULO DE index por que me da la gana";
+  res.render("./task/tarea", { tareas: datos_tareas, usuario: datos_usuario });
+});
 
-                
-            
-                      });
-                                      
-                
 // cruD
-router.post('/delete',async function (req,res,next) {
+router.post("/delete", async function (req, res, next) {
+  //rebre username. i l tarea.id
+  const username = req.body.user.username.id;
+  const tarea_id = req.body.user.tareaid;
 
-        //rebre username. i l tarea.id        
-        const username = req.body.user.username.id
-        const tarea_id = req.body.user.tareaid
+  const resultado_borrado = await taskUtils.deleteTask(username, tarea_id);
 
-        const resultado_borrado = await taskUtils.deleteTask(username,tarea_id)
-        
+  console.log("estoy Tareas");
 
-                console.log("estoy Tareas");
+  console.log(datos_tareas);
 
-                console.log(datos_tareas);
-        
-                var titulo = "TITULO DE index por que me da la gana"
-                res.render('./task/tarea', { tareas : datos_tareas,
-                                             usuario : datos_usuario });
-
-                
-            
-                      });
+  var titulo = "TITULO DE index por que me da la gana";
+  res.render("./task/tarea", { tareas: datos_tareas, usuario: datos_usuario });
+});
 
 module.exports = router;
