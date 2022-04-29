@@ -45,13 +45,25 @@ router.post("/crear", async function (req, res, next) {
   console.log("pepepeepp");
   console.log(req.body);
 
-  //const resultado_crear = await taskUtils.createTask("sreus")
-  //const datos_tareas = await taskUtils.listTask("sreus")
-
-  //const titulo_tarea = req.body.user.titulo_tarea
+//Agafar el camps be i amb el nom que toca
+//const titulo_tarea = req.body.user.titulo_tarea
   //const descp_tarea = req.body.user.descp_tarea
   //const fecha_creacion = req.body.user.fecha_creacion
   //const id_usuario = req.body.user.id_usuario
+
+// alguna funcio per comprovar que tot ok.... 
+
+  //req.body.nombretaria != NULL o NaN
+
+
+
+    //const resultado_crear = await taskUtils.createTask("sreus")
+  
+  
+    //segons resultat... pues error o redirect
+    
+
+  
   //console.log("estoy Tareas");
 
   console.log("putamare");
@@ -60,7 +72,19 @@ router.post("/crear", async function (req, res, next) {
 
   // si tot ok
 
-  //res.render('../../tarea');
+  //const datos_tareas = await taskUtils.listTask("sreus");
+
+  
+
+  //var titulo = "TITULO DE index por que me da la gana";
+  //res.render("./task/tarea", { tareas: datos_tareas, usuario: datos_usuario });
+
+
+
+
+
+
+
   res.redirect("../tareas");
 });
 
