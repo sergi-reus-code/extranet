@@ -5,7 +5,6 @@ var conexion = require('../config/conexion');
 async function listTask(HTMLid_tarea){
   
   
-    HTMLid_tarea = 2;
 
     //const SQL_query = "SELECT * FROM `tareas` WHERE `tareas`.`id_tarea` = " + HTMLid_tarea ;  
     const SQL_query = "SELECT * FROM `tareas` WHERE `tareas`.`id_usuario` = 1" ;
@@ -22,7 +21,7 @@ async function listTask(HTMLid_tarea){
 
 async function createTask(titulo_tarea, id_usuario){
   
-const SQL_query = "INSERT INTO tareas (`id_tarea`,`titulo_tarea`, `descp_tarea`, `fecha_creacion`, `id_usuario` ) SELECT SupplierName, ContactName, Address, City, PostalCode, Country FROM Suppliers";
+const SQL_query = "INSERT INTO tareas  (`id_tarea`,`titulo_tarea`, `descp_tarea`, `fecha_creacion`, `id_usuario` ) VALUES ('Levar pintor','Llevar pintor i repasosde obra tartera','2022-02-25','1') ";
 ;  
 
 const result = await conexion.query(SQL_query).catch(err => { throw err}); 
@@ -33,8 +32,8 @@ const result = await conexion.query(SQL_query).catch(err => { throw err});
     
   }
 
-//INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
-//VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+  //INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+  VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
 
   console.log(result);
 

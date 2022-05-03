@@ -46,15 +46,16 @@ router.post("/crear", async function (req, res, next) {
   console.log(req.body);
 
 //Agafar el camps be i amb el nom que toca
-//const titulo_tarea = req.body.user.titulo_tarea
-  //const descp_tarea = req.body.user.descp_tarea
-  //const fecha_creacion = req.body.user.fecha_creacion
-  //const id_usuario = req.body.user.id_usuario
+const titulo_tarea = req.body.user.titulo_tarea
+const descp_tarea = req.body.user.descp_tarea
+const fecha_creacion = req.body.user.fecha_creacion
+const id_usuario = req.body.user.id_usuario
 
 // alguna funcio per comprovar que tot ok.... 
 
   //req.body.nombretaria != NULL o NaN
-
+req.body,tarea 
+  !=null
 
 
     //const resultado_crear = await taskUtils.createTask("sreus")
