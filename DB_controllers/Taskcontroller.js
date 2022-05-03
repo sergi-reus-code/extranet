@@ -22,8 +22,9 @@ async function listTask(HTMLid_tarea){
 
 async function createTask(titulo_tarea, id_usuario){
   
-const SQL_query = "INSERT INTO `tareas` VALUES  (`id_tarea`,`titulo_tarea`, `descp_tarea`, `fecha_creacion`, `id_usuario` )"  ;  
- 
+const SQL_query = "INSERT INTO tareas (`id_tarea`,`titulo_tarea`, `descp_tarea`, `fecha_creacion`, `id_usuario` ) SELECT SupplierName, ContactName, Address, City, PostalCode, Country FROM Suppliers";
+;  
+
 const result = await conexion.query(SQL_query).catch(err => { throw err}); 
 
   if (result.length == 0) {
