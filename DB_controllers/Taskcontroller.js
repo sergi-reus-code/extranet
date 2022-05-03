@@ -24,7 +24,7 @@ async function createTask(titulo_tarea, id_usuario){
 const SQL_query = "INSERT INTO tareas  (`id_tarea`,`titulo_tarea`, `descp_tarea`, `fecha_creacion`, `id_usuario` ) VALUES ('Levar pintor','Llevar pintor i repasosde obra tartera','2022-02-25','1') ";
 ;  
 
-const result = await conexion.query(SQL_query).catch(err => { throw err}); 
+//const result = await conexion.query(SQL_query).catch(err => { throw err}); 
 
   if (result.length == 0) {
 
