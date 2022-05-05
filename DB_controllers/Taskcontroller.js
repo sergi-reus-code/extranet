@@ -33,9 +33,9 @@ const SQL_query = "INSERT INTO tareas  (`id_tarea`,`titulo_tarea`, `descp_tarea`
   }
 
   //INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
-  VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
+  //VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
 
-  console.log(result);
+ // console.log(result);
 
 
 
