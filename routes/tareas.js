@@ -55,7 +55,8 @@ const id_usuario = req.body.user.id_usuario
 
   //req.body.nombretaria != NULL o NaN
 req.body,tarea 
-  !=null
+ 
+!=null
 
 
     //const resultado_crear = await taskUtils.createTask("sreus")
@@ -63,7 +64,12 @@ req.body,tarea
   
     //segons resultat... pues error o redirect
     
+      switch (resultado) {
+      case "ok":
 
+           res.redirect('/tareas');//("TODO OK -> : " + Levar pintor + " % Levar pintor: " + Llevar pintor i repasosde obra tartera + "2022-02-25 + "1" existe en la base de datos")
+      
+      break;}
   
   //console.log("estoy Tareas");
 
