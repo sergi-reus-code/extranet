@@ -33,8 +33,9 @@ router.post('/', async function (req,res,next)  {
         switch (resultado) {
             case "ok":
 
-                 res.redirect('/tareas');//("TODO OK -> Username: " + username + " % password: " + password + " existe en la base de datos")
+                 res.redirect('/tareas?user='+`${username}`);
             
+
             break;
         
             case "badUsername":

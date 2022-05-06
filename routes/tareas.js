@@ -21,6 +21,10 @@ const datos_usuario = [
 // PAGINA PRINCIPAL TAREAS - cRud - READ
 
 router.get("/", async function (req, res, next) {
+//To access GET variable use req.query() and req.params() methods.
+  console.log(req.query);
+
+
   const datos_tareas = await taskUtils.listTask("sreus");
 
   console.log("estoy Tareas");
