@@ -17,13 +17,8 @@ const datos_usuario = [
   },
 ];
 
-/*var mascots = [
-        { name: 'Sammy', organization: "DigitalOcean", birth_year: 2012},
-        { name: 'Tux', organization: "Linux", birth_year: 1996},
-        { name: 'Moby Dock', organization: "Docker", birth_year: 2013}
-    ];*/
 
-// cRud
+// PAGINA PRINCIPAL TAREAS - cRud - READ
 
 router.get("/", async function (req, res, next) {
   const datos_tareas = await taskUtils.listTask("sreus");
@@ -36,10 +31,16 @@ router.get("/", async function (req, res, next) {
   res.render("./task/tarea", { tareas: datos_tareas, usuario: datos_usuario });
 });
 
-// Crud
+
+
+// CREAR TAREA METODO GET - Crud - CREATE
+
 router.get("/crear", async function (req, res, next) {
   res.render("./task/crear");
 });
+
+
+// CREAR TAREA METODO POST - Crud - CREATE
 
 router.post("/crear", async function (req, res, next) {
   console.log("pepepeepp");
@@ -66,12 +67,12 @@ const descp_tarea = req.body.user.descp_tarea
   
     //segons resultat... pues error o redirect
     
-      switch (resultado) {
-      case "ok":
+      //switch (resultado) {
+      //case "ok":
 
-           res.redirect('/tareas');//("TODO OK -> : " + Levar pintor + " % Levar pintor: " + Llevar pintor i repasosde obra tartera + "2022-02-25 + "1" existe en la base de datos")
+           //res.redirect('/tareas');//("TODO OK -> : " + Levar pintor + " % Levar pintor: " + Llevar pintor i repasosde obra tartera + "2022-02-25 + "1" existe en la base de datos")
       
-      break;}
+      //break;}
   
   //console.log("estoy Tareas");
 
@@ -97,7 +98,14 @@ const descp_tarea = req.body.user.descp_tarea
   res.redirect("../tareas");
 });
 
-// crUd
+// EDITAR TAREA METODO GET - crUd - UPDATE
+
+router.get("/edit", async function (req, res, next) {
+  res.render("./task/editar");
+});
+
+
+// EDITAR TAREA METODO POST - crUd - UPDATE
 
 router.post("/edit", async function (req, res, next) {
   //rebre username. i l tarea.id
@@ -114,7 +122,14 @@ router.post("/edit", async function (req, res, next) {
   res.render("./task/tarea", { tareas: datos_tareas, usuario: datos_usuario });
 });
 
-// cruD
+
+/**
+ * 
+ */
+
+
+
+
 router.post("/delete", async function (req, res, next) {
   //rebre username. i l tarea.id
   const username = req.body.user.username.id;
