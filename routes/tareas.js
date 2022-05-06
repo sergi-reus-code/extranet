@@ -48,8 +48,8 @@ router.post("/crear", async function (req, res, next) {
 console.log(req.body.tarea);
 
 //Agafar el camps be i amb el nom que toca
-//const titulo_tarea = req.body.user.tarea.titulo_tarea
-//const descp_tarea = req.body.user.descp_tarea
+const titulo_tarea = req.body.user.tarea.titulo_tarea
+const descp_tarea = req.body.user.descp_tarea
 
 
 
