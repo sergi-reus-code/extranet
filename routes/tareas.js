@@ -3,6 +3,7 @@ var router = express.Router();
 
 const taskUtils = require("../DB_Controllers/Taskcontroller");
 
+/*
 const datos_usuario = [
   {
     id_usuario: 1,
@@ -16,6 +17,7 @@ const datos_usuario = [
     email: "sreus@reuscontruccions.com",
   },
 ];
+*/
 
 
 // PAGINA PRINCIPAL TAREAS - cRud - READ
@@ -132,7 +134,14 @@ router.post("/edit", async function (req, res, next) {
  */
 
 
+// BORRAR TAREA METODO GET - cruD - DELETE
 
+router.get("/delete", async function (req, res, next) {
+  res.render("./task/borrar");
+});
+
+
+// BORRAR TAREA METODO POST - cruD - DELETE
 
 router.post("/delete", async function (req, res, next) {
   //rebre username. i l tarea.id
