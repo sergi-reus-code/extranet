@@ -1,4 +1,3 @@
-const res = require('express/lib/response');
 var conexion = require('../config/conexion');
 
 

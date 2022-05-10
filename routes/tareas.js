@@ -1,69 +1,57 @@
 var express = require("express");
-const { readUser } = require("../DB_Controllers/loginController");
 var router = express.Router();
 
 const taskUtils = require("../DB_Controllers/Taskcontroller");
-
-
-const datos_usuario = [
-  {
-    id_usuario: 1,
-    Nombre: "Sergi",
-    apellidos: "Reus",
-    fecha_creacion: "2022-02-24T23:00:00.000Z",
-    username: "sreus",
-    password: "sreuspassword",
-    rol: "master",
-    telf: "690849407",
-    email: "sreus@reuscontruccions.com",
-  },
-];
+const userUtils = require("../DB_Controllers/Usercontroller");
 
 
 
-// PAGINA PRINCIPAL TAREAS - cRud - READ
+/**
+ * PAGINA PRINCIPAL TAREAS - cRud - READ
+ */
 
 router.get("/", async function (req, res, next) {
-//To access GET variable use req.query() and req.params() methods.
-  console.log("ususario " + req.query.user);
 
-  const user= req.query.user
-
-  //const datos_tareas = await taskUtils.listTask(user);
-
-  //const datos_usuario = await taskUtils..
-
-  const datos_tareas = await taskUtils.listTask(user);
-  //const datos_usuario = await readUser.listTask("username,password")
+  //To access GET variable use req.query() and req.params() methods.
   
-  console.log("estoy Tareas");
+  const user = req.query.user;
+   
+  const datos_tareas = await taskUtils.listTask(user);
 
-  var titulo = "TITULO DE index por que me da la gana";
+  const datos_usuario = await userUtils.readUserData(user);
+
   res.render("./task/tarea", { tareas: datos_tareas, usuario: datos_usuario });
+
+
+
 });
 
 
 
-// CREAR TAREA METODO GET - Crud - CREATE
+//-----------------------------------------------
+
+
+
+/**
+ * CREAR TAREA METODO GET - Crud - CREATE
+ */
 
 router.get("/crear", async function (req, res, next) {
+  
   res.render("./task/crear");
+
 });
 
 
 // CREAR TAREA METODO POST - Crud - CREATE
 
 router.post("/crear", async function (req, res, next) {
-  console.log("pepepeepp");
-  console.log(req.body);
-
-console.log(req.body.tarea);
 
 //Agafar el camps be i amb el nom que toca
-const titulo_tarea = req.body.user.tarea.titulo_tarea
-const descp_tarea = req.body.user.descp_tarea
+const titulo_tarea = req.body.tarea.titulo_tarea
+const descp_tarea = req.body.tarea.descp_tarea
 
-
+console.log(titulo_tarea + " - " + descp_tarea);
 
 
 
