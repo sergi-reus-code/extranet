@@ -1,4 +1,5 @@
 var express = require("express");
+const { readUser } = require("../DB_Controllers/loginController");
 var router = express.Router();
 
 const taskUtils = require("../DB_Controllers/Taskcontroller");
@@ -27,8 +28,9 @@ router.get("/", async function (req, res, next) {
   console.log(req.query);
 
 
-  const datos_tareas = await taskUtils.listTask("sreus");
-
+  const datos_tareas = await taskUtils.listTask("titulo_tareas, descp_tarea");
+  const datos_usuario = await readUser.listTask("username,password")
+  
   console.log("estoy Tareas");
 
   console.log(datos_tareas);

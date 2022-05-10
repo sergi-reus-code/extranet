@@ -1,14 +1,16 @@
 const res = require('express/lib/response');
 var conexion = require('../config/conexion');
 
+async function readUser(HTMLusername, HTMLpassaword){
+  
+  const SQL_query = "SELECT * FROM `usuarios` WHERE `username` = '"  + `${HTMLuser}` + "'";   
 
-async function checkUser(HTMLusername, HTMLpassaword){
+  const result = await conexion.query(SQL_query).catch(err => { throw err}); }
+
+async function checkUser(HTMLusername, HTMLpassword){
   
     const SQL_query = "SELECT * FROM `usuarios` WHERE `username` = '"  + `${HTMLusername}` + "'";   
 
-    const result = await conexion.query(SQL_query).catch(err => { throw err}); 
-
-    console.log(result)
 
     
 
@@ -46,6 +48,6 @@ async function checkUser(HTMLusername, HTMLpassaword){
 
 module.exports = {
 
-  checkUser
+  checkUser, readUser
 
 }
