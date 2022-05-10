@@ -16,22 +16,24 @@ const datos_usuario = [
     telf: "690849407",
     email: "sreus@reuscontruccions.com",
   },
-];
-*/
+];*/
+
 
 
 // PAGINA PRINCIPAL TAREAS - cRud - READ
 
 router.get("/", async function (req, res, next) {
 //To access GET variable use req.query() and req.params() methods.
-  console.log(req.query);
+  console.log("ususario " + req.query.user);
 
+  const user= req.query.user
 
-  const datos_tareas = await taskUtils.listTask("sreus");
+  const datos_tareas = await taskUtils.listTask(user);
+
+  const datos_usuario = await taskUtils.
+
 
   console.log("estoy Tareas");
-
-  console.log(datos_tareas);
 
   var titulo = "TITULO DE index por que me da la gana";
   res.render("./task/tarea", { tareas: datos_tareas, usuario: datos_usuario });
