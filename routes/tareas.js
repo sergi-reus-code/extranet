@@ -4,7 +4,7 @@ var router = express.Router();
 
 const taskUtils = require("../DB_Controllers/Taskcontroller");
 
-/*
+
 const datos_usuario = [
   {
     id_usuario: 1,
@@ -17,7 +17,7 @@ const datos_usuario = [
     telf: "690849407",
     email: "sreus@reuscontruccions.com",
   },
-];*/
+];
 
 
 
@@ -33,8 +33,8 @@ router.get("/", async function (req, res, next) {
 
   //const datos_usuario = await taskUtils..
 
-  const datos_tareas = await taskUtils.listTask("titulo_tareas, descp_tarea");
-  const datos_usuario = await readUser.listTask("username,password")
+  const datos_tareas = await taskUtils.listTask(user);
+  //const datos_usuario = await readUser.listTask("username,password")
   
   console.log("estoy Tareas");
 
