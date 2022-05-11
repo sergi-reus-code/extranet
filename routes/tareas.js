@@ -21,9 +21,7 @@ router.get("/", async function (req, res, next) {
   const datos_usuario = await userUtils.readUserData(user);
 
   res.render("./task/tarea", { tareas: datos_tareas, usuario: datos_usuario });
-
-
-
+  
 });
 
 
@@ -149,6 +147,9 @@ router.post("/delete", async function (req, res, next) {
 
   var titulo = "TITULO DE index por que me da la gana";
   res.render("./task/tarea", { tareas: datos_tareas, usuario: datos_usuario });
+
+  
+
 });
 
 module.exports = router;
