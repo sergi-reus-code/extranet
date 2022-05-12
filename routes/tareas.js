@@ -46,6 +46,9 @@ router.get("/crear", async function (req, res, next) {
 router.post("/crear", async function (req, res, next) {
 
 //Agafar el camps be i amb el nom que toca
+
+const user = req.query.user;
+
 const titulo_tarea = req.body.tarea.titulo_tarea
 const descp_tarea = req.body.tarea.descp_tarea
 
@@ -69,7 +72,6 @@ console.log(titulo_tarea + " - " + descp_tarea);
 
            //res.redirect('/tareas');//("TODO OK -> : " + Levar pintor + " % Levar pintor: " + Llevar pintor i repasosde obra tartera + "2022-02-25 + "1" existe en la base de datos")
       
-      //break;}
   
   //console.log("estoy Tareas");
 
