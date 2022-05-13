@@ -80,27 +80,59 @@ resultado_crear ="ok"
 
 // EDITAR TAREA METODO GET - crUd - UPDATE
 
-router.get("/edit", async function (req, res, next) {
-  res.render("./task/editar");
+
+router.get("/upload", async function (req, res, next) {
+  console.log("in upload");
+  const id_tarea = req.query.idtarea
+  const username = req.query.username
+
+  console.log(id_tarea);
+  console.log(username);
+
+  const datos_tarea = await taskUtils.listTaskById(id_tarea);
+  
+  const datos_usuario = [{user:`${username}`}]
+  console.log("estoy en get");
+  console.log(datos_tarea);
+
+  res.render("./task/editar", { tareas: datos_tarea, user: datos_usuario });
 });
 
 
-// EDITAR TAREA METODO POST - crUd - UPDATE
+// BORRAR TAREA METODO POST - cruD - DELETE
 
-router.post("/edit", async function (req, res, next) {
-  //rebre username. i l tarea.id
-  const username = req.body.user.username.id;
-  const tarea_id = req.body.user.tareaid;
+router.post("/upload", async function (req, res, next) {
+  
+  console.log("estoy en post upload");
 
-  const datos_tareas = await taskUtils.listTask("sreus");
+  console.log(req.body.datos_tarea.titulo_tarea);
+  console.log(req.body.datos_tarea.descp_tarea);
+  console.log(req.body.datos_tarea.id_tarea);
+  
+  console.log(req.body.datos_tarea.username);
 
-  console.log("estoy Tareas");
+  const resultado_borrado = await taskUtils.uploadTask(req.body.datos_tarea.id_tarea);
 
-  console.log(datos_tareas);
+  console.log(resultado_borrado);
+  
+  if (resultado_borrado ==="ok") {
 
-  var titulo = "TITULO DE index por que me da la gana";
-  res.render("./task/tarea", { tareas: datos_tareas, usuario: datos_usuario });
+    res.redirect('/tareas?user='  + `${req.body.datos_tarea.username}`);
+
+  } else {
+    
+    res.redirect('/error');
+
+  }
+ 
+ 
+ 
+ 
+  
+ 
+
 });
+
 
 
 /**
@@ -157,7 +189,7 @@ router.post("/delete", async function (req, res, next) {
  
  
  
-  //
+  
  
 
 });
