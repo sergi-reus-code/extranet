@@ -13,7 +13,7 @@
 
 
         <li class="nav-item">Usuario : <a class="nav-link active" href="./login/"> <%=usuario[0].Nombre %> <%=usuario[0].apellidos %></a></li>
-        <li class="nav-item"><a class="nav-link active" href="./tareas/crear/"> Crear nueva tarea</a></li>
+        <li class="nav-item"><a class="nav-link active" href="./tareas/crear?username=<%=usuario[0].username %>"> Crear nueva tarea</a></li>
      
     </ul>
 
@@ -46,7 +46,7 @@
                 <td> 
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link active" href="./tareas/edit"> Editar</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="./tareas/delete?idtarea=<%=tareas[i].id_tarea %>"> Borrar</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="./tareas/delete?idtarea=<%=tareas[i].id_tarea %>&username=<%=usuario[0].username %>"> Borrar</a></li>
                     </ul>
 
 

@@ -39,7 +39,9 @@ router.get("/", async function (req, res, next) {
 
 router.get("/crear", async function (req, res, next) {
   
-  res.render("./task/crear");
+  const user = req.query
+
+  res.render("./task/crear", {user: user});
 
 });
 
@@ -48,30 +50,31 @@ router.get("/crear", async function (req, res, next) {
 
 router.post("/crear", async function (req, res, next) {
 
-//Agafar el camps be i amb el nom que toca
+  const user = req.body.tarea.username
+  const titulo_tarea = req.body.tarea.titulo_tarea
+  const descp_tarea = req.body.tarea.descp_tarea
 
-const user = req.query.user;
+  //console.log(req.body.tarea);
 
-const titulo_tarea = req.body.tarea.titulo_tarea
-const descp_tarea = req.body.tarea.descp_tarea
-
-console.log(titulo_tarea + " - " + descp_tarea);
-
-
-  console.log("putamare");
-
-  var titulo = "TITULO DE index por que me da la gana";
-
-  // si tot ok
-
-  //const datos_tareas = await taskUtils.listTask("sreus");
+  var resultado_crear = await taskUtils.createTask(user, titulo_tarea, descp_tarea);
 
   
+  console.log(resultado_crear);
 
-  //var titulo = "TITULO DE index por que me da la gana";
-  //res.render("./task/tarea", { tareas: datos_tareas, usuario: datos_usuario });
 
-  res.redirect("../tareas");
+resultado_crear ="ok"
+
+  if (resultado_crear ==="ok") {
+
+    res.redirect('/tareas?user='  + `${req.body.tarea.username}`);
+
+  } else {
+    
+    res.redirect('/error');
+
+  }
+
+ 
 
 });
 
@@ -110,12 +113,18 @@ router.post("/edit", async function (req, res, next) {
 router.get("/delete", async function (req, res, next) {
   console.log("in delete");
   const id_tarea = req.query.idtarea
+  const username = req.query.username
 
   console.log(id_tarea);
+  console.log(username);
+
+  const datos_tarea = await taskUtils.listTaskById(id_tarea);
   
-  const datos_tareas = await taskUtils.listTaskById(id_tarea);
-  
-  res.render("./task/borrar", { tareas: datos_tareas });
+  const datos_usuario = [{user:`${username}`}]
+  console.log("estoy en get");
+  console.log(datos_tarea);
+
+  res.render("./task/borrar", { tareas: datos_tarea, user: datos_usuario });
 });
 
 
@@ -123,14 +132,32 @@ router.get("/delete", async function (req, res, next) {
 
 router.post("/delete", async function (req, res, next) {
   
-  const tarea_id = req.body.user.tareaid;
-  const user = req.body.user.tareaid
+  console.log("estoy en post deleta");
 
-  const resultado_borrado = await taskUtils.deleteTask(username, tarea_id);
+  console.log(req.body.datos_tarea.titulo_tarea);
+  console.log(req.body.datos_tarea.descp_tarea);
+  console.log(req.body.datos_tarea.id_tarea);
+  
+  console.log(req.body.datos_tarea.username);
 
+  const resultado_borrado = await taskUtils.deleteTask(req.body.datos_tarea.id_tarea);
+
+  console.log(resultado_borrado);
   
-  
- res.redirect('/tareas?user='+`${username}`);
+  if (resultado_borrado ==="ok") {
+
+    res.redirect('/tareas?user='  + `${req.body.datos_tarea.username}`);
+
+  } else {
+    
+    res.redirect('/error');
+
+  }
+ 
+ 
+ 
+ 
+  //
  
 
 });

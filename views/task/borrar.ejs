@@ -1,1 +1,71 @@
-hola
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.min.css">
+</head>
+
+<body>
+   
+
+
+    
+  
+    <div class="container">
+       
+        <form method="post" action="../../tareas/delete">
+            <div class="row text-start" style="padding: 0px;">
+                <div class="col"></div>
+                <div class="col-md-6" id="message">
+                    <fieldset>
+                        <legend class="text-center" style="font-style: normal;font-weight: bold;font-size: 28px;">Crear tarea</legend>
+                    </fieldset>
+
+                    <div class="has-feedback form-group mb-3">
+                        <label class="form-label" for="from_name"  style="font-size: 20px;">Id_tarea</label>
+                        <input class="form-control" type="text" style="font-size: 21px;" name="datos_tarea[id_tarea]" value="<%=tareas[0].id_tarea   %>">
+                    </div>
+
+                    <div class="has-feedback form-group mb-3">
+                        <label class="form-label" for="from_name"  style="font-size: 20px;">Username</label>
+                        <input class="form-control" type="text" style="font-size: 21px;" name="datos_tarea[username]" value="<%=user[0].user   %>">
+                    </div>
+
+                    <div class="has-feedback form-group mb-3">
+                        <label class="form-label" for="from_name"  style="font-size: 20px;">Titulo_tarea</label>
+                        <input class="form-control" type="text" style="font-size: 21px;" name="datos_tarea[titulo_tarea]" value="<%=tareas[0].titulo_tarea  %>">
+                    </div>
+
+                    <div class="has-feedback form-group mb-3">
+                        <label class="form-label" for="from_name" style="font-size: 20px;">Descp_tarea</label>
+                        <input class="form-control"  type="text" id="comments-1" name="datos_tarea[descp_tarea]"  value="<%=tareas[0].descp_tarea  %>"></input>
+                    
+                    </div>
+                    
+                    
+                    
+                   
+                    <div class="form-group mb-3"><button class="btn btn-primary d-block w-100" type="submit">Borrar Si<i
+                                class="fa fa-chevron-circle-right"></i></button></div>
+
+                                <div class="form-group mb-3"><button class="btn btn-primary d-block w-100" type="submit">Borrar No<i
+                                    class="fa fa-chevron-circle-right"></i></button></div>
+
+                    <hr>
+
+                </div>
+                <div class="col"></div>
+            </div>
+        </form>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

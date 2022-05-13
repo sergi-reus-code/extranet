@@ -11,7 +11,8 @@
 </head>
 
 <body>
-    
+    asdASD
+    <%=user.username   %>
     <div class="container">
        
         <form method="post" action="../../tareas/crear">
@@ -22,6 +23,13 @@
                         <legend class="text-center" style="font-style: normal;font-weight: bold;font-size: 28px;">Crear
                             tarea</legend>
                     </fieldset>
+
+
+                    <div class="has-feedback form-group mb-3">
+                        <label class="form-label" for="from_name"  style="font-size: 20px;">Username</label>
+                        <input class="form-control" type="text" style="font-size: 21px;" name="tarea[username]" value="<%=user.username   %>">
+                    </div>
+
 
                     <div class="has-feedback form-group mb-3">
                         <label class="form-label" for="from_name"  style="font-size: 20px;">Titulo_tarea</label>
