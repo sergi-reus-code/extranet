@@ -20,13 +20,9 @@ router.get("/", async function (req, res, next) {
 
   const datos_usuario = await userUtils.readUserData(user);
 
-  console.log(datos_usuario);
-
-
   res.render("./task/tarea", { tareas: datos_tareas, usuario: datos_usuario });
   
 });
-
 
 
 //-----------------------------------------------

@@ -9,8 +9,13 @@ var conexion = require('../config/conexion');
 
 async function checkUser(HTMLusername, HTMLpassword){
   
+  
+
   const SQL_query = "SELECT * FROM `usuarios` WHERE `username` = '"  + `${HTMLusername}` + "'";   
   const result = await conexion.query(SQL_query).catch(err => { throw err}); 
+
+  
+
 
   if (result.length == 1) {
  
