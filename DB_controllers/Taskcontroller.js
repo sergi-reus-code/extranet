@@ -59,7 +59,7 @@ return checkResult(result)
 
 async function deleteTask(id_tarea){
   
-  const SQL_query = `DELETE FROM tareas WHERE tareas.id_tarea = ${id_tarea}`;
+  const SQL_query = `UPDATE `tareas` SET `titulo_tarea`='[]',`descp_tarea`='[]` ;
   const result = await conexion.query(SQL_query).catch(err => { throw err}); 
   
 
@@ -73,14 +73,31 @@ async function deleteTask(id_tarea){
   }
 
 
-
+  async function uploadTask (id_tarea){
+  
+    const SQL_query = `UPDATE  tareas`;
+    const result = await conexion.query(SQL_query).catch(err => { throw err}); 
+    
+  
+     
+  
+  
+    return checkResult(result)
+    
+    
+    
+    }
+  
+  
+  
+  
 
   
 
 
 module.exports = {
 
-  listAllTask, createTask, listTaskById, deleteTask
+  listAllTask, createTask, listTaskById, deleteTask, uploadTask
 
 }
 

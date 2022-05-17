@@ -99,13 +99,13 @@ router.post("/update", async function (req, res, next) {
   
 
 
-  //const resultado_borrado = await taskUtils.uploadTask(req.body.datos_tarea.id_tarea);
-  const resultado_borrado = "ok"
+  const resultado_update = await taskUtils.uploadTask(req.body.datos_tarea.id_tarea);
+  //const resultado_update = "ok"
 
 
 
   
-  if (resultado_borrado ==="ok") {
+  if (resultado_update ==="ok") {
 
     res.redirect('/tareas?user='  + `${req.body.datos_tarea.username}`);
 
