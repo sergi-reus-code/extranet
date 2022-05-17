@@ -16,7 +16,7 @@ router.get("/", async function (req, res, next) {
   
   const user = req.query.user;
    
-  const datos_tareas = await taskUtils.listTask(user);
+  const datos_tareas = await taskUtils.listAllTask(user);
 
   const datos_usuario = await userUtils.readUserData(user);
 
@@ -50,12 +50,12 @@ router.post("/crear", async function (req, res, next) {
   const titulo_tarea = req.body.tarea.titulo_tarea
   const descp_tarea = req.body.tarea.descp_tarea
 
-  //console.log(req.body.tarea);
+  
 
   var resultado_crear = await taskUtils.createTask(user, titulo_tarea, descp_tarea);
 
   
-  console.log(resultado_crear);
+  
 
 
 resultado_crear ="ok"
@@ -78,18 +78,16 @@ resultado_crear ="ok"
 
 
 router.get("/update", async function (req, res, next) {
-  console.log("in get update");
+ 
   const id_tarea = req.query.idtarea
   const username = req.query.username
 
-  console.log(id_tarea);
-  console.log(username);
+  
 
   const datos_tarea = await taskUtils.listTaskById(id_tarea);
   
   const datos_usuario = [{user:`${username}`}]
-  console.log("estoy en get");
-  console.log(datos_tarea);
+
 
   res.render("./task/editar", { tareas: datos_tarea, user: datos_usuario });
 });
@@ -99,19 +97,13 @@ router.get("/update", async function (req, res, next) {
 
 router.post("/update", async function (req, res, next) {
   
-  console.log("estoy en post update");
 
-  console.log(req.body.datos_tarea.titulo_tarea);
-  console.log(req.body.datos_tarea.descp_tarea);
-  console.log(req.body.datos_tarea.id_tarea);
-  
-  console.log(req.body.datos_tarea.username);
 
   //const resultado_borrado = await taskUtils.uploadTask(req.body.datos_tarea.id_tarea);
   const resultado_borrado = "ok"
 
 
-  console.log(resultado_borrado);
+
   
   if (resultado_borrado ==="ok") {
 
@@ -141,18 +133,16 @@ router.post("/update", async function (req, res, next) {
 // BORRAR TAREA METODO GET - cruD - DELETE
 
 router.get("/delete", async function (req, res, next) {
-  console.log("in delete");
+
   const id_tarea = req.query.idtarea
   const username = req.query.username
 
-  console.log(id_tarea);
-  console.log(username);
+
 
   const datos_tarea = await taskUtils.listTaskById(id_tarea);
   
   const datos_usuario = [{user:`${username}`}]
-  console.log("estoy en get");
-  console.log(datos_tarea);
+
 
   res.render("./task/borrar", { tareas: datos_tarea, user: datos_usuario });
 });
@@ -162,17 +152,11 @@ router.get("/delete", async function (req, res, next) {
 
 router.post("/delete", async function (req, res, next) {
   
-  console.log("estoy en post deleta");
 
-  console.log(req.body.datos_tarea.titulo_tarea);
-  console.log(req.body.datos_tarea.descp_tarea);
-  console.log(req.body.datos_tarea.id_tarea);
-  
-  console.log(req.body.datos_tarea.username);
 
   const resultado_borrado = await taskUtils.deleteTask(req.body.datos_tarea.id_tarea);
 
-  console.log(resultado_borrado);
+ 
   
   if (resultado_borrado ==="ok") {
 
