@@ -12,27 +12,17 @@ function checkresult (){
 
 async function listTask(user){
   
-    const SQL_query = "SELECT * FROM `tareas` WHERE `tareas`.`id_usuario` = 1" ;
-    const result = await conexion.query(SQL_query).catch(err => { throw err}); 
-    return result
+  const SQL_query = "SELECT * FROM `tareas` WHERE `tareas`.`id_usuario` = 1" ;
+  const result = await conexion.query(SQL_query).catch(err => { throw err}); 
+  return result
 
 }
 
 async function listTaskById(id_tarea){
-  
-  
 
-  //const SQL_query = "SELECT * FROM `tareas` WHERE `tareas`.`id_tarea` = " + HTMLid_tarea ;  
-  //const SQL_query = "SELECT * FROM `tareas` WHERE `tareas`.`id_usuario` = 1" ;
   const SQL_query = "SELECT * FROM `tareas` WHERE `tareas`.`id_tarea` = " + `${id_tarea}` + "" ;
-  //const SQL_query = "SELECT `tareas`.* FROM `tareas`";
-
   const result = await conexion.query(SQL_query).catch(err => { throw err}); 
-
-  
-  
- 
-return result
+  return result
 
 }
 
@@ -60,12 +50,7 @@ return resultado
 
 async function deleteTask(id_tarea){
   
-  console.log(id_tarea);
-  
-
   const SQL_query = `DELETE FROM tareas WHERE tareas.id_tarea = ${id_tarea}`;
-  
-  
   var result = await conexion.query(SQL_query).catch(err => { throw err}); 
   
 
@@ -75,20 +60,7 @@ async function deleteTask(id_tarea){
   result = "ok"
 
 
-/*
 
-    if (result.length == 0) {
-  
-      console.log("tot ok");
-      
-    }
-  
-    //INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
-    //VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
-  
-   // console.log(result);
-  
-  */
   
 
 
