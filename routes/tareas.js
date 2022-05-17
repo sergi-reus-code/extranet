@@ -15,10 +15,14 @@ router.get("/", async function (req, res, next) {
   //To access GET variable use req.query() and req.params() methods.
   
   const user = req.query.user;
-   
-  const datos_tareas = await taskUtils.listAllTask(user);
-
+  
   const datos_usuario = await userUtils.readUserData(user);
+  
+  console.log(datos_usuario);
+
+  const datos_tareas = await taskUtils.listAllTask(datos_usuario[0].id_usuario);
+
+  
 
   res.render("./task/tarea", { tareas: datos_tareas, usuario: datos_usuario });
   
@@ -99,7 +103,7 @@ router.post("/update", async function (req, res, next) {
   
 
 
-  const resultado_update = await taskUtils.uploadTask(req.body.datos_tarea.id_tarea);
+  const resultado_update = await taskUtils.updateTask(req.body.datos_tarea.id_tarea, req.body.datos_tarea.titulo_tarea, req.body.datos_tarea.descp_tarea);
   //const resultado_update = "ok"
 
 

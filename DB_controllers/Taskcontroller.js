@@ -9,7 +9,7 @@ function checkResult (resultado_consulta){
 console.log(resultado_consulta);
 
 
-  return resultado_consulta
+  return "ok"
 
 }
 
@@ -17,13 +17,16 @@ console.log(resultado_consulta);
 
 
 
-async function listAllTask(user){
+async function listAllTask(id_usuarioHTML){
   
+
+  console.log(id_usuarioHTML);
+
   //PASAR USER BIEN
-  const SQL_query = "SELECT * FROM `tareas` WHERE `tareas`.`id_usuario` = 1" ;
+  const SQL_query = "SELECT * FROM `tareas` WHERE `tareas`.`id_usuario` = " + `${id_usuarioHTML}` ;
   const result = await conexion.query(SQL_query).catch(err => { throw err}); 
 
-  return checkResult(result);
+  return (result);
 
 }
 
@@ -31,7 +34,7 @@ async function listTaskById(id_tarea){
 
   const SQL_query = "SELECT * FROM `tareas` WHERE `tareas`.`id_tarea` = " + `${id_tarea}` + "" ;
   const result = await conexion.query(SQL_query).catch(err => { throw err}); 
-  return checkResult(result)
+  return (result)
 
 }
 
@@ -47,7 +50,7 @@ const SQL_query = "INSERT INTO `tareas`( `titulo_tarea`, `descp_tarea`, `fecha_c
 const result = await conexion.query(SQL_query).catch(err => { throw err}); 
 
 
-return checkResult(result)
+return (result)
 
 
 
@@ -57,32 +60,46 @@ return checkResult(result)
 }
 
 
-async function deleteTask(id_tarea){
+async function deleteTask(id_tareaHTML){
   
-  const SQL_query = `UPDATE `tareas` SET `titulo_tarea`='[]',`descp_tarea`='[]` ;
+  const SQL_query = `DELETE FROM tareas WHERE id_tarea = ${id_tareaHTML}` ;
   const result = await conexion.query(SQL_query).catch(err => { throw err}); 
   
 
    
 
 
-  return checkResult(result)
+  return ("ok")
   
   
   
   }
 
 
-  async function uploadTask (id_tarea){
+  async function updateTask (id_tareaHTML, titulo_tareaHTML, descp_tareaHTML){
   
-    const SQL_query = `UPDATE  tareas`;
+      console.log(id_tareaHTML);
+
+      console.log(titulo_tareaHTML);
+
+      console.log(descp_tareaHTML);
+
+
+
+    //const SQL_query = "UPDATE tareas SET titulo_tarea = " + `${titulo_tareaHTML}` + " , descp_tarea = " + `${descp_tareaHTML}` + " WHERE id_tarea = " + `${id_tareaHTML} `;
+    //const SQL_query = "UPDATE tareas SET titulo_tarea = 111 , descp_tarea = bbbb WHERE id_tarea = " + `${id_tareaHTML} `;
+    const SQL_query = "UPDATE `tareas` SET `titulo_tarea` = '" + `${titulo_tareaHTML}` +"' , `descp_tarea` = '" + `${descp_tareaHTML}` +"' WHERE `tareas`.`id_tarea` = " + `${id_tareaHTML} ` 
+    
+    
+    console.log(SQL_query);
+
     const result = await conexion.query(SQL_query).catch(err => { throw err}); 
     
   
      
   
   
-    return checkResult(result)
+    return ("ok")
     
     
     
@@ -97,7 +114,7 @@ async function deleteTask(id_tarea){
 
 module.exports = {
 
-  listAllTask, createTask, listTaskById, deleteTask, uploadTask
+  listAllTask, createTask, listTaskById, deleteTask, updateTask
 
 }
 
