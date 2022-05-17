@@ -77,8 +77,8 @@ resultado_crear ="ok"
 // EDITAR TAREA METODO GET - crUd - UPDATE
 
 
-router.get("/upload", async function (req, res, next) {
-  console.log("in upload");
+router.get("/update", async function (req, res, next) {
+  console.log("in get update");
   const id_tarea = req.query.idtarea
   const username = req.query.username
 
@@ -97,9 +97,9 @@ router.get("/upload", async function (req, res, next) {
 
 // BORRAR TAREA METODO POST - cruD - DELETE
 
-router.post("/upload", async function (req, res, next) {
+router.post("/update", async function (req, res, next) {
   
-  console.log("estoy en post upload");
+  console.log("estoy en post update");
 
   console.log(req.body.datos_tarea.titulo_tarea);
   console.log(req.body.datos_tarea.descp_tarea);
@@ -107,7 +107,9 @@ router.post("/upload", async function (req, res, next) {
   
   console.log(req.body.datos_tarea.username);
 
-  const resultado_borrado = await taskUtils.uploadTask(req.body.datos_tarea.id_tarea);
+  //const resultado_borrado = await taskUtils.uploadTask(req.body.datos_tarea.id_tarea);
+  const resultado_borrado = "ok"
+
 
   console.log(resultado_borrado);
   
