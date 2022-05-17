@@ -42,9 +42,10 @@ async function listTaskById(id_tarea){
 
 
 
-async function createTask(user, titulo_tarea, descp_tarea){
+async function createTask(id_usuario, titulo_tarea, descp_tarea){
   
-const SQL_query = "INSERT INTO `tareas`( `titulo_tarea`, `descp_tarea`, `fecha_creacion`, `id_usuario`, `id_creator`) VALUES ('" + `${titulo_tarea}  `  +"','" + `${descp_tarea}  `  +"','2022-03-25','1','1')";
+const SQL_query = "INSERT INTO `tareas`( `titulo_tarea`, `descp_tarea`, `fecha_creacion`, `id_usuario`, `id_creator`)" + 
+             " VALUES ('" + `${titulo_tarea}  `  +"','" + `${descp_tarea}  `  +"','2022-03-25','" + `${id_usuario}`  +"','1')";
  
 
 const result = await conexion.query(SQL_query).catch(err => { throw err}); 

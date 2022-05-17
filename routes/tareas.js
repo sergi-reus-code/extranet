@@ -18,11 +18,7 @@ router.get("/", async function (req, res, next) {
   
   const datos_usuario = await userUtils.readUserData(user);
   
-  console.log(datos_usuario);
-
   const datos_tareas = await taskUtils.listAllTask(datos_usuario[0].id_usuario);
-
-  
 
   res.render("./task/tarea", { tareas: datos_tareas, usuario: datos_usuario });
   
@@ -41,6 +37,10 @@ router.get("/crear", async function (req, res, next) {
   
   const user = req.query
 
+  console.log("wwww");
+
+  console.log(user);
+
   res.render("./task/crear", {user: user});
 
 });
@@ -50,13 +50,18 @@ router.get("/crear", async function (req, res, next) {
 
 router.post("/crear", async function (req, res, next) {
 
+
+  console.log(req.body);
+
+
   const user = req.body.tarea.username
+  const id_user = req.body.tarea.id_usuario
   const titulo_tarea = req.body.tarea.titulo_tarea
   const descp_tarea = req.body.tarea.descp_tarea
 
   
 
-  var resultado_crear = await taskUtils.createTask(user, titulo_tarea, descp_tarea);
+  var resultado_crear = await taskUtils.createTask(id_user, titulo_tarea, descp_tarea);
 
   
   
