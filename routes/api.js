@@ -14,8 +14,7 @@ router.get('/',(req,res,next) => {
         //comprovar email
         //comprovar password
         //a la base de dades
-
-        
+        //hola        
 
         console.log(req.headers);
 
