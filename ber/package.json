@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app.js",
+    "start": "node src/index.js",
     "build": "babel src -d dist",
     "dev": "nodemon src --exec babel-node "
   },
@@ -32,7 +32,7 @@
     "nodemon": "^2.0.16"
   },
   "description": "Extranet Reus Construccions",
-  "main": "app.js",
+  "main": "index.js",
   "bin": {
     "extranet": "bin/www.js"
   },
@@ -46,5 +46,6 @@
   "bugs": {
     "url": "https://github.com/sergi-reus-code/extranet/issues"
   },
-  "homepage": "https://github.com/sergi-reus-code/extranet#readme"
+  "homepage": "https://github.com/sergi-reus-code/extranet#readme",
+  "type": "module"
 }
