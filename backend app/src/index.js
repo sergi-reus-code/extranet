@@ -1,2 +1,4 @@
 const greet = 'hello worl'
-Console.log (greet)
+console.log(greet);
+
+console.log (greet);
