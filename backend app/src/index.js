@@ -1,4 +1,5 @@
-const greet = 'hello worl'
-console.log(greet);
+import app from "./app.js";
 
-console.log (greet);
+app.listen(3001)
+
+console.log('server on port 3001')
