@@ -1,4 +1,4 @@
-import moduleName from '../database' 
+import moduleName from '../database.js' 
 
 export const getTasks = (req, res) => {
     res.send("Hello")

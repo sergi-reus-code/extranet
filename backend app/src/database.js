@@ -1,5 +1,5 @@
-var mysql= require("mysql")
-const util = require("util"); 
+import  mysql from "mysql"
+import util  from "util"; 
 
 /*
 var con= mysql.createConnection({
@@ -57,9 +57,7 @@ conDO.connect(
 }
 ); 
 
+export default conDO
 
 
-
-//module.exports  = con;
-module.exports = conDO;
 
