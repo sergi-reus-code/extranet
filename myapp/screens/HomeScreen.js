@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { View, Text, flatlist } from 'react-native'
+import { View, Text, FlatList } from 'react-native'
 import {getTasks} from '../api'
 
 const HomeScreen = () => {
@@ -17,7 +17,8 @@ const HomeScreen = () => {
 
   return (
     <View>
-      <flatlist 
+    
+      <FlatList 
        data={tasks}
        renderItem={() => (
         <Text> hello world</Text>
@@ -26,7 +27,8 @@ const HomeScreen = () => {
       
       />
 
-
+<Text> hello world</Text>
+    
     </View>
   )
 }
