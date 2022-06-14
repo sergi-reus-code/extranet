@@ -1,63 +1,11 @@
-import  mysql from "mysql"
-import util  from "util"; 
+import mysql from 'mysql2/promise.js';
+import {config} from "./config.js";
 
-/*
-var con= mysql.createConnection({
-         host:'127.0.0.1',
-         user: 'root',
-         password: '',
-         database:'EXTRANET_DB'
-}
-);
-*/
-/*
-con.connect( 
-     (err)=>{
-        if (!err){
-           console.log('Conexión establecida to Localhost')
-        }else{
-           console.log('Error de conexión Localhost')
-           console.log(err);
+const connect = async () => {
+const conn = await mysql.createConnection(config);
 
-       }
-    }
-); 
+const result = conn.query('SELECT 1 + 1 ')
+console.log(result)
+};
 
-
-*/
-
-
-
-
-var conDO= mysql.createConnection({
-   host:'db-mysql-ams3-37392-do-user-10958994-0.b.db.ondigitalocean.com',
-   port: 25060,
-   user: 'node_user',
-   password: 'xfL2FewBsBKY6Tpu',
-   database:'extranet_db'
-   //sslmode: 'REQUIRED'
-}
-);
-
-conDO.query = util.promisify(conDO.query).bind(conDO);
-
-conDO.connect( 
-(err)=>{
-  if (!err){
-     console.log('Conexión establecida to Digital Ocean')
-
-
-    
-
-  }else{
-     console.log('Error de conexión to Digital Ocean')
-     console.log(err);
-
- }
-}
-); 
-
-export default conDO
-
-
-
+connect();
