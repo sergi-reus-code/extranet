@@ -17,7 +17,7 @@ const HomeScreen = () => {
 
   return (
     <View>
-      <Flatlist/>
+      <Text>Homew</Text>
     </View>
   )
 }

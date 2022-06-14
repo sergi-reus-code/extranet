@@ -13,12 +13,7 @@ export const getTasks = async () => {
 
 export const getTasks = async () => {
    console.log("hello");
-   const res = await fetch(API, {
-      mode: 'cors',
-      headers: {
-        'Access-Control-Allow-Origin':'*'
-      }
-    })
+   const res = await fetch(API)
    console.log("hello2");
    return await res.json()
 }
