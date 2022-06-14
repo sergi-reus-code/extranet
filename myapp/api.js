@@ -1,5 +1,6 @@
 const API = 'http://localhost:3001/tasks'
 
+//const API = 'http://192.168.1.33:3001/tasks'
 
 
 export const getTasks = async () => {
@@ -7,7 +8,7 @@ export const getTasks = async () => {
    const res = await fetch(API, {
       method: 'GET',
       //headers: new Headers({ 'Content-type': 'application/json'}),
-      mode: 'cors'
+      mode: 'no-cors'
 })
 
    console.log("pepep" + res);
