@@ -1,18 +1,15 @@
-//const API = 'http://10.0.2.2:3001/tasks'
-const API = 'http://127.0.0.1:3001/tasks'
+const API = 'http://localhost:3001/tasks'
 
-/*
-export const getTasks = async () => {
-   console.log("hello");
-   const res = await fetch(API)
-   console.log("hello2");
-   return await res.json()
-}
 
-*/
 
 export const getTasks = async () => {
    console.log("hello")
-   const res = await fetch(API)
+   const res = await fetch(API, {
+      method: 'GET',
+      //headers: new Headers({ 'Content-type': 'application/json'}),
+      mode: 'no-cors'
+})
+
+   console.log(res);
    return await res.json()
 }

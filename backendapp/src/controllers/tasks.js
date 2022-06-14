@@ -1,7 +1,7 @@
 import moduleName from '../database.js' 
 
 export const getTasks = (req, res) => {
-    res.send("Hello")
+    res.send("Hello from getTasks")
 }
 
 export const getTask = (req, res) => {
