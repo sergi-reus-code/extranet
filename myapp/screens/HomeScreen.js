@@ -8,8 +8,8 @@ const HomeScreen = () => {
 
   const loadTasks = async () => {
     const data = await getTasks()
-    console.log(data)
-    }
+    setTasks(data) 
+ }
  
  useEffect(() => { 
   loadTasks()
@@ -17,7 +17,16 @@ const HomeScreen = () => {
 
   return (
     <View>
-      <Text>Homew</Text>
+      <flatlist 
+       data={tasks}
+       renderItem={() => (
+        <Text> hello world</Text>
+
+      )}
+      
+      />
+
+
     </View>
   )
 }
