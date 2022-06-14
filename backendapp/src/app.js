@@ -9,9 +9,7 @@ const app = express();
 
 app.use(taskRoutes)
 
-  app.use(cors({
-    origin: '*'
-}));
+app.use(cors({ origin: '*' }));
 
 
 export default app

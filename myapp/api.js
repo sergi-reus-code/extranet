@@ -7,9 +7,11 @@ export const getTasks = async () => {
    const res = await fetch(API, {
       method: 'GET',
       //headers: new Headers({ 'Content-type': 'application/json'}),
-      mode: 'no-cors'
+      mode: 'cors'
 })
 
+   console.log("pepep" + res);
    console.log(res);
-   return await res.json()
+   //return await res.json()
+   return await res
 }
