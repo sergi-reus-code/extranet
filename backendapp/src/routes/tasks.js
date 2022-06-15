@@ -6,20 +6,20 @@ import {
     getTaskCount, 
     deleteTask,
     updateTask
-}  from '../controllers/tasks.js';
+}  from "../controllers/tasks.js";
 
 const router = Router();
 
-router.get('/tasks', getTasks); 
+router.get("/tasks", getTasks); 
 
-router.get('/tasks/count', getTaskCount); 
+router.get("/tasks/count", getTaskCount); 
 
-router.get('/tasks/:id', getTask);
+router.get("/tasks/:id", getTask);
 
-router.post('/tasks/', saveTask);
+router.post("/tasks/", saveTask);
 
-router.delete('/tasks:id', deleteTask);  
+router.delete("/tasks:id", deleteTask);  
 
-router.put('/tasks/:id', updateTask);
+router.put("/tasks/:id", updateTask);
 
 export default router
