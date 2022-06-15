@@ -1,20 +1,8 @@
-import connect from '../database.js' 
+import {connect} from '../database.js' 
 
 
-async function pepe ()  {
-
-  const [rows] = await connect.query ('SELECT * FROM tareas') 
-
-  console.log(rows);
-
-return rows
-}
-
-
-
-
-export const getTasks = (req, res) => {
-   res = pepe()
+export const getTasks = async (req, res) => {
+    const [rows] = await connect.query('SELECT * FROM tareas') 
     console.log(rows);  
     res.send("Hello from getTasks")
 }
