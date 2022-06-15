@@ -5,4 +5,4 @@ const connect = async () => {
   return await mysql.createConnection(config);
 };
 
-connect();
+export default connect;
