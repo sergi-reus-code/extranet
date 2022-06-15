@@ -1,6 +1,8 @@
-//import moduleName from '../database.js' 
+//import {connect} from '../database.js' 
 
 export const getTasks = (req, res) => {
+   // const [rows] = await connect.query ('SELECT * FROM tareas') 
+   // console.log(rows);  
     res.send("Hello from getTasks")
 }
 
