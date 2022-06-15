@@ -22,7 +22,7 @@ export const getTaskCount = async (req, res) => {
 };
 
 
-export const saveTask = (req, res) => {
+export const saveTask = async (req, res) => {
   const connection = await connect();
   const result = await connection.query("INSERT INTO tareas(id_tarea, titulo_tarea, descp_tarea, fecha_creacion, id_usuario,) VALUES (?,?,?,?,?)", [
       req.body.id_tarea,

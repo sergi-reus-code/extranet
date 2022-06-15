@@ -10,4 +10,14 @@ GET {{api}}/count
 
 ###
 POST {{api}}
-content-type
+Content-Type: application/json      
+
+{
+    "id_tarea": "12",
+    "titulo_tarea": "primera tarea",
+    "descp_tarea": "descrpcion de la tarea",
+    "fecha_creacion": "2022-03-25",
+    "id_usuario": "2",
+
+}
+
