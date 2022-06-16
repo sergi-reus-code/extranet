@@ -24,23 +24,35 @@ export const getTaskCount = async (req, res) => {
 
 export const saveTask = async (req, res) => {
   const connection = await connect();
-  const result = await connection.query("INSERT INTO tareas(titulo_tarea, descp_tarea) VALUES (?,?)", [
+  const results = await connection.query("INSERT INTO tareas(titulo_tarea, descp_tarea, fecha_creacion, id_usuario,id_creator) VALUES (?,?,?,?,?)", [
       req.body.titulo_tarea,
-      req.body.descp_tarea
-      //req.body.fecha_creacion,
-      //req.body.id_usuario
-
+      req.body.descp_tarea,
+      req.body.fecha_creacion,
+      req.body.id_usuario,
+      req.body.id_creator
   ])
-  console.log(result)
-  //res.json(rows[0]); 
+
+  res.json({
+      id_tarea: results.insertId_tarea,
+      ...req.body,
+        
+  });
+};
+export const deleteTask = async (req, res) => {
+    const connection = await connect();
+    await connection.query("DELETE FROM tarea WHERE id_tarea = ?", [
+      req.params.id,
+    ])
+    res.sendStatus(204)
 };
 
 
-export const deleteTask = (req, res) => {
-  res.send("Hello")
-};
-
-
-export const updateTask = (req, res) => {
-  res.send("Hello")
+export const updateTask = async (req, res) => {
+   const connection = await connect();
+   const results = await connection.query('UPDATE tareas SET ? WHERE id_tarea = ?',[
+        req.body,
+        req.params.id_tarea
+   ])
+   res.sendStatus(204)
+   console.log(results)
 }
