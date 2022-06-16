@@ -42,14 +42,18 @@ export const saveTask = async (req, res) => {
 
 export const deleteTask = async (req, res) => {
 
-    console.log("pepepeep");
+res.send("hello world")
+console.log(buenas)
+
+
+   /* console.log("pepepeep");
     console.log(req.params.id);
 
     const connection = await connect();
     await connection.query("DELETE FROM tareas WHERE id_tarea = ?", [
       req.params.id,
     ])
-    res.sendStatus(204)
+    res.sendStatus(204)*/
 };
 
 
