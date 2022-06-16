@@ -29,5 +29,6 @@ PUT {{api}}/26
 content-Type: application/json
 
 {
-    "titulo_tarea":"hola buenos dias"
+    "titulo_tarea":"dias",
+    "descp_tarea":"pepep"
 }

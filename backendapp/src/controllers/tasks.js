@@ -34,20 +34,14 @@ export const saveTask = async (req, res) => {
   ])
 
   res.json({
-      id_tarea: results.insertId_tarea,
+      id: results.insertId,
       ...req.body,
         
   });
 };
 
 export const deleteTask = async (req, res) => {
-
-//res.send("hello world")
-//console.log("buenas")
-
-
     
-
     const connection = await connect();
     await connection.query("DELETE FROM tareas WHERE id_tarea = ?", [
       req.params.id,
@@ -57,15 +51,12 @@ export const deleteTask = async (req, res) => {
 
 
 export const updateTask = async (req, res) => {
-   
-console.log(req.body);
+   const connection = await connect();
+   const results = await connection.query('UPDATE tareas set ? WHERE id_tarea = ?', [
+     req.body,
+     req.params.id
+   ])
+    console.log(results)
+  res.sendStatus(204);
 
-  /*
-  const connection = await connect();
-   const results = await connection.query('UPDATE tareas SET ? WHERE id_tarea = ?',[
-        req.body,
-        req.params.id_tarea
-   ])*/
-   res.sendStatus(204)
-   console.log(results)
 }
