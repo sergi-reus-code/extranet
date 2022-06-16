@@ -8,9 +8,10 @@ export const getTasks = async (req, res) => {
   };
 
 export const getTask = async (req, res) => {
+    console.log( req.params.id);
     const connection = await connect();
     const [rows] = await connection.query("SELECT * FROM tareas WHERE id_tarea = ?", [
-      req.params.id,
+      req.params.id
    ])
    res.json(rows[0]); 
 };
@@ -38,9 +39,14 @@ export const saveTask = async (req, res) => {
         
   });
 };
+
 export const deleteTask = async (req, res) => {
+
+    console.log("pepepeep");
+    console.log(req.params.id);
+
     const connection = await connect();
-    await connection.query("DELETE FROM tarea WHERE id_tarea = ?", [
+    await connection.query("DELETE FROM tareas WHERE id_tarea = ?", [
       req.params.id,
     ])
     res.sendStatus(204)
