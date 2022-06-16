@@ -42,27 +42,30 @@ export const saveTask = async (req, res) => {
 
 export const deleteTask = async (req, res) => {
 
-res.send("hello world")
-console.log(buenas)
+//res.send("hello world")
+//console.log("buenas")
 
 
-   /* console.log("pepepeep");
-    console.log(req.params.id);
+    
 
     const connection = await connect();
     await connection.query("DELETE FROM tareas WHERE id_tarea = ?", [
       req.params.id,
     ])
-    res.sendStatus(204)*/
+    res.sendStatus(204)
 };
 
 
 export const updateTask = async (req, res) => {
-   const connection = await connect();
+   
+console.log(req.body);
+
+  /*
+  const connection = await connect();
    const results = await connection.query('UPDATE tareas SET ? WHERE id_tarea = ?',[
         req.body,
         req.params.id_tarea
-   ])
+   ])*/
    res.sendStatus(204)
    console.log(results)
 }
