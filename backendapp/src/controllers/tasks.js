@@ -24,12 +24,11 @@ export const getTaskCount = async (req, res) => {
 
 export const saveTask = async (req, res) => {
   const connection = await connect();
-  const result = await connection.query("INSERT INTO tareas(id_tarea, titulo_tarea, descp_tarea, fecha_creacion, id_usuario,) VALUES (?,?,?,?,?)", [
-      req.body.id_tarea,
+  const result = await connection.query("INSERT INTO tareas(titulo_tarea, descp_tarea) VALUES (?,?)", [
       req.body.titulo_tarea,
-      req.body.descp_tarea,
-      req.body.fecha_creacion,
-      req.body.id_usuario
+      req.body.descp_tarea
+      //req.body.fecha_creacion,
+      //req.body.id_usuario
 
   ])
   console.log(result)
