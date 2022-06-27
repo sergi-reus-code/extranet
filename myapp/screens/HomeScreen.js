@@ -8,6 +8,7 @@ const HomeScreen = () => {
 
   const loadTasks = async () => {
     const data = await getTasks()
+    console.log(data);
     setTasks(data) 
  }
  

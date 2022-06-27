@@ -2,9 +2,13 @@ import {connect} from '../database.js'
 
 
 export const getTasks = async (req, res) => {
+  
     const connection = await connect();
-    const [rows] = await connection.query ('SELECT * FROM tareas');
-     res.json(rows);
+
+    const [rows] = await connection.query('SELECT * FROM tareas');
+
+    res.json(rows);
+  
   };
 
 export const getTask = async (req, res) => {
