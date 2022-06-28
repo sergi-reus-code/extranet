@@ -1,0 +1,34 @@
+import { View, Text, StyleSheet } from 'react-native'
+import React from 'react'
+
+const TaskItem = ({tarea}) => {
+  return (
+    <View style={styles.itemContainer}>
+      <Text style={styles.itemTitle}>{tarea.titulo_tarea}</Text>
+      <Text style={styles.itemTitle}>{tarea.descp_tarea}</Text>
+    </View>
+  )
+}
+
+
+const styles = StyleSheet.create({
+
+    itemContainer : {
+
+        backgroundColor: "#333333",
+        padding: 20,
+        marginVertical:8,
+        borderRadius:5
+
+    },
+
+    itemTitle : {
+        color: "#ffffff"
+    }
+
+})
+
+
+
+
+export default TaskItem
