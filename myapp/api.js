@@ -4,15 +4,9 @@ const API = 'http://192.168.18.5:3001/tasks'
 
 
 export const getTasks = async () => {
-   console.log("hello")
-   const res = await fetch(API, {
-      method: 'GET',
-      //headers: new Headers({ 'Content-type': 'application/json'}),
-      mode: 'no-cors'
-})
 
-   console.log("pepep" + res);
-   console.log(res);
-   //return await res.json()
-   return res
+   const res = await fetch(API)
+ 
+   return await res.json()
+  
 }

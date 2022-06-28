@@ -7,7 +7,9 @@ const HomeScreen = () => {
   const [tasks, setTasks] = useState ([])
 
   const loadTasks = async () => {
+
     const data = await getTasks()
+    
     console.log(data);
     setTasks(data) 
  }
@@ -28,7 +30,7 @@ const HomeScreen = () => {
       
       />
 
-<Text> hello world</Text>
+
     
     </View>
   )
