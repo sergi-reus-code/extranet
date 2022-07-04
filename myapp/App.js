@@ -16,6 +16,7 @@ const App = () => {
           name="HomeScreen"
           component={HomeScreen}
           options={({ navigation }) => ({
+            title: "REUS TODO APP ",
             headerStyle: { backgroundColor: "#222f3e" },
             headerTitleStyle: { color: "#ffffff" },
             headerRight: () => {
@@ -25,13 +26,26 @@ const App = () => {
                     navigation.navigate("TaskFormScreen");
                   }}
                 >
-                  <Text>Nueva Tarea</Text>
+                  <Text
+                    style={{ color: "#ffffff", marginRight: 20, fontsize: 15 }}
+                  >
+                    Nueva Tarea{" "}
+                  </Text>
                 </TouchableOpacity>
               );
             },
           })}
         />
-        <Stack.Screen name="TaskFormScreen" component={TaskFormScreen} />
+        <Stack.Screen
+          name="TaskFormScreen"
+          component={TaskFormScreen}
+          options={{
+            title: "Crear Nueva Tarea",
+            headerStyle: { backgroundColor: "#222f3e" },
+            headerTitleStyle: { color: "#ffffff" },
+            headerTintColor: "#ffffff",
+          }}
+        />
         <Stack.Screen name="TestScrenn" component={TestScreen} />
       </Stack.Navigator>
     </NavigationContainer>
