@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState}from "react";
 import {
   View,
   Text,
@@ -10,6 +10,20 @@ import {
 import Layout from "../components/Layout";
 
 const TaskFormScreen = () => {
+
+    const [task, setTask] = useState({
+      titulo_tarea: '',
+      descp_tarea: ''
+    })
+
+
+    const handleChange = (name, value) => setTask({...task, [name]:value})    
+
+  
+
+
+
+
   return (
     <Layout>
       <Text>Task Formsdfasdf</Text>
@@ -24,15 +38,14 @@ const TaskFormScreen = () => {
         style={style.input}
         placeholder="Escribe descripcion de la tarea"
         placeholderTextColor="#546574"
+        onChangeText={text => console.log(text)}
       />
 
-      <TouchableOpacity>
-        <Text>Guardar</Text>
+      <TouchableOpacity style={style.buttonSave}>
+        <Text style={style.buttonText}>Guardar Tarea</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity>
-        <Text>Guardar</Text>
-      </TouchableOpacity>
+
 
 
 
@@ -54,6 +67,29 @@ const style = StyleSheet.create({
     textAlign: "center",
     borderRadius: 5,
   },
+  buttonSave: {
+    paddingTop: 10,
+    paddingBottom: 10,
+    borderRadius: 5,
+    marginBottom: 10,
+    backgroundColor: "#10ac84",
+    width: '90%'
+  },
+  buttonText: {
+    color: "#ffffff",
+    textAlign: "center"    
+
+    
+
+
+
+  }
+
+
+
+
+
+
 });
 
 export default TaskFormScreen;
