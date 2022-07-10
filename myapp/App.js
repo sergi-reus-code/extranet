@@ -16,7 +16,7 @@ const App = () => {
           name="HomeScreen"
           component={HomeScreen}
           options={({ navigation }) => ({
-            title: "REUS TODO APP ",
+            title: "TAREAS SERGI REUS",
             headerStyle: { backgroundColor: "#222f3e" },
             headerTitleStyle: { color: "#ffffff" },
             headerRight: () => {
@@ -27,10 +27,10 @@ const App = () => {
                   }}
                 >
                   <Text
-                    style={{ color: "#ffffff", marginRight: 20, fontsize: 15 }}
+                    style={{ color: "#ffffff", marginRight: 20, fontSize: 15 }}
                   >
                     Nueva Tarea{" "}
-                  </Text>
+                  </Text> 
                 </TouchableOpacity>
               );
             },

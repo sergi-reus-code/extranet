@@ -28,20 +28,31 @@ export const getTaskCount = async (req, res) => {
 
 
 export const saveTask = async (req, res) => {
+  console.log("pepepe");
+  console.log(req.body);
+
   const connection = await connect();
+
+  
   const results = await connection.query("INSERT INTO tareas(titulo_tarea, descp_tarea, fecha_creacion, id_usuario,id_creator) VALUES (?,?,?,?,?)", [
       req.body.titulo_tarea,
       req.body.descp_tarea,
-      req.body.fecha_creacion,
-      req.body.id_usuario,
-      req.body.id_creator
+      "2017-06-15",
+      1,
+      1
   ])
 
+
+ 
+  
   res.json({
       id: results.insertId,
       ...req.body,
         
   });
+
+
+
 };
 
 export const deleteTask = async (req, res) => {

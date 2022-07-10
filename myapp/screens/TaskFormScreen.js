@@ -1,4 +1,4 @@
-import React , {useState}from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -8,21 +8,45 @@ import {
 } from "react-native";
 
 import Layout from "../components/Layout";
+import { saveTask, getTask, updateTask } from "../api";
 
-const TaskFormScreen = () => {
+const TaskFormScreen = ({ navigation, route }) => {
+  //viene del elemento padre
+  const [task, setTask] = useState({
+    titulo_tarea: "",
+    descp_tarea: "",
+  });
 
-    const [task, setTask] = useState({
-      titulo_tarea: '',
-      descp_tarea: ''
-    })
+  const [editing, setEditing] = useState(false);
 
+  const handleChange = (name, value) => setTask({ ...task, [name]: value });
 
-    const handleChange = (name, value) => setTask({...task, [name]:value})    
+  const handleSummit = async () => {
+    if (!editing) {
+      await saveTask(task);
+    } else {
+      await updateTask(route.params.id, task);
+    }
 
-  
+    navigation.navigate("HomeScreen");
+  };
 
+  useEffect(async () => {
+    try {
+      if (route.params && route.params.id) {
+        navigation.setOptions({ headerTitle: "Editar tarea" });
+        setEditing(true);
+        const task = await getTask(route.params.id);
 
-
+        setTask({
+          titulo_tarea: task.titulo_tarea,
+          descp_tarea: task.descp_tarea,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
 
   return (
     <Layout>
@@ -32,24 +56,27 @@ const TaskFormScreen = () => {
         style={style.input}
         placeholder="Escribe titulo"
         placeholderTextColor="#546574"
+        onChangeText={(text) => handleChange("titulo_tarea", text)}
+        value={task.titulo_tarea}
       />
 
       <TextInput
         style={style.input}
         placeholder="Escribe descripcion de la tarea"
         placeholderTextColor="#546574"
-        onChangeText={text => console.log(text)}
+        onChangeText={(text) => handleChange("descp_tarea", text)}
+        value={task.descp_tarea}
       />
 
-      <TouchableOpacity style={style.buttonSave}>
-        <Text style={style.buttonText}>Guardar Tarea</Text>
-      </TouchableOpacity>
-
-
-
-
-
-
+      {!editing ? (
+        <TouchableOpacity style={style.buttonSave} onPress={handleSummit}>
+          <Text style={style.buttonText}>Guardar Tarea</Text>
+        </TouchableOpacity>
+      ) : (
+        <TouchableOpacity style={style.buttonUpdate} onPress={handleSummit}>
+          <Text style={style.buttonText}>Update Tarea</Text>
+        </TouchableOpacity>
+      )}
     </Layout>
   );
 };
@@ -73,23 +100,22 @@ const style = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 10,
     backgroundColor: "#10ac84",
-    width: '90%'
+    width: "90%",
   },
+
+  buttonUpdate: {
+    paddingTop: 10,
+    paddingBottom: 10,
+    borderRadius: 5,
+    marginBottom: 10,
+    backgroundColor: "#e58e26",
+    width: "90%",
+  },
+
   buttonText: {
     color: "#ffffff",
-    textAlign: "center"    
-
-    
-
-
-
-  }
-
-
-
-
-
-
+    textAlign: "center",
+  },
 });
 
 export default TaskFormScreen;
